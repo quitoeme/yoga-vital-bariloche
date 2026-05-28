@@ -1,4 +1,4 @@
-import { site, schedule } from "@/lib/data";
+import { site, schedule, faqs } from "@/lib/data";
 
 // Mapeo de los códigos de día (es) a los nombres de schema.org (en)
 const DAY_TO_SCHEMA: Record<string, string> = {
@@ -88,6 +88,20 @@ export default function JsonLd() {
     publisher: { "@id": `${site.url}/#business` },
   };
 
+  const faqPage = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "@id": `${site.url}/#faq`,
+    mainEntity: faqs.map((f) => ({
+      "@type": "Question",
+      name: f.q,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: f.a,
+      },
+    })),
+  };
+
   return (
     <>
       <script
@@ -97,6 +111,10 @@ export default function JsonLd() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(website) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqPage) }}
       />
     </>
   );

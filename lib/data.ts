@@ -136,6 +136,38 @@ export const schedule: ScheduleSlot[] = [
 
 export const days: ScheduleSlot["day"][] = ["Lun", "Mar", "Mié", "Jue", "Vie"];
 
+export type Faq = { q: string; a: string };
+
+// Preguntas frecuentes. Escritas con búsquedas locales reales en mente
+// ("yoga en Bariloche", "yoga terapéutico", "clases de yoga"). Se usan tanto
+// en la sección visible como en el structured data (FAQPage) para SEO.
+export const faqs: Faq[] = [
+  {
+    q: "¿Dónde puedo hacer yoga en Bariloche?",
+    a: "En Yoga Vital Bariloche, en pleno centro de San Carlos de Bariloche (Av. San Martín 586, 1° B), con Rashi. Tenemos clases de lunes a viernes en distintos horarios de mañana, mediodía, tarde y noche.",
+  },
+  {
+    q: "¿Qué es el Yoga Vital?",
+    a: "Yoga Vital es una práctica terapéutica que une el yoga clásico con el Ayurveda. En lugar de forzar el cuerpo a la postura, adaptamos la postura a tu cuerpo con cinturones, bloques y almohadones. Es ideal para todos los niveles.",
+  },
+  {
+    q: "¿Necesito experiencia previa para empezar?",
+    a: "No. Trabajamos en grupos chicos y cada persona avanza a su ritmo. Si nunca hiciste yoga, te acompañamos desde la primera clase. Podés venir a una clase suelta para probar antes de sumarte.",
+  },
+  {
+    q: "¿Hacen yoga terapéutico?",
+    a: "Sí. Ofrecemos prácticas específicas para columna, articulaciones, estrés, hipertensión y post-rehabilitación, con un trabajo individualizado dentro del grupo. El yoga terapéutico es el corazón de la escuela.",
+  },
+  {
+    q: "¿Qué días y horarios hay clases de yoga?",
+    a: "Hay clases de lunes a viernes. Lunes y miércoles a las 14:00 y 16:30; martes y viernes a las 9:30; y martes y jueves a las 19:00 y 20:30. Cada clase dura aproximadamente 60 minutos.",
+  },
+  {
+    q: "¿Cómo reservo una clase?",
+    a: "Escribinos por WhatsApp al +54 9 294 479-6273 y te orientamos. Podés reservar un mes completo (tu lugar queda fijo cada semana) o coordinar una clase suelta para probar.",
+  },
+];
+
 export type Course = {
   id: string;
   title: string;

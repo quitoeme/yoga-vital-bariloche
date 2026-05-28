@@ -9,6 +9,7 @@ import Reservation from "@/components/Reservation";
 import Courses from "@/components/Courses";
 import Workshops from "@/components/Workshops";
 import Events from "@/components/Events";
+import Faq from "@/components/Faq";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
@@ -28,6 +29,7 @@ export default function Home() {
       <Courses />
       <Workshops />
       <Events />
+      <Faq />
       <Contact />
       <Footer />
       <FloatingWhatsApp />
