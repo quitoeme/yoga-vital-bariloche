@@ -70,8 +70,8 @@ export default function Hero() {
           className="absolute -inset-12"
         >
           <Image
-            src="/hero-yoga-bariloche.png"
-            alt="Amanecer patagónico sobre el Nahuel Huapi con figura en meditación"
+            src="/hero-yoga-bariloche.jpg"
+            alt="Clase de Yoga Vital en Bariloche al amanecer sobre el lago Nahuel Huapi"
             fill
             priority
             quality={88}
@@ -119,7 +119,7 @@ export default function Hero() {
         >
           <div className="inline-flex items-center gap-2 rounded-full border border-sand-50/25 bg-moss-800/30 px-4 py-2 text-[10px] uppercase tracking-[0.32em] text-sand-50/95 backdrop-blur-md">
             <MapPin size={12} />
-            <span>{site.city}</span>
+            <span>Yoga Vital · {site.city}</span>
           </div>
 
           <h1 className="mt-6 font-display text-[clamp(2.6rem,7.5vw,6rem)] leading-[0.92] tracking-tight text-sand-50">
@@ -131,6 +131,11 @@ export default function Hero() {
             </RevealLine>
             <br />
             <RevealLine delay={0.95}>Volver a casa.</RevealLine>
+            <span className="sr-only">
+              {" "}
+              — Yoga Vital en San Carlos de Bariloche con Rashi: clases de yoga
+              y yoga terapéutico.
+            </span>
           </h1>
 
           <motion.p
@@ -139,9 +144,9 @@ export default function Hero() {
             transition={{ delay: 1.15, duration: 0.9 }}
             className="mt-7 max-w-xl text-base leading-relaxed text-sand-50/90 md:text-lg"
           >
-            Yoga Vital con {site.teacher} al pie del Nahuel Huapi. Una práctica
-            terapéutica que une el yoga clásico con el Ayurveda, adaptada a tu
-            cuerpo de hoy.
+            Clases de Yoga Vital en San Carlos de Bariloche con {site.teacher},
+            al pie del Nahuel Huapi. Una práctica terapéutica que une el yoga
+            clásico con el Ayurveda, adaptada a tu cuerpo de hoy.
           </motion.p>
 
           <motion.div

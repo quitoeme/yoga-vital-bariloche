@@ -8,13 +8,26 @@ export const site = {
   tagline: "Yoga terapéutico al pie de los Andes",
   description:
     "Una práctica que une el yoga ancestral con el Ayurveda. Adapta la postura a tu cuerpo, no tu cuerpo a la postura.",
+  // URL pública del sitio (canonical, sitemap, OpenGraph). Cambiá esto si
+  // conectás un dominio propio (ej. https://yogavitalbariloche.com).
+  url: "https://rashi-theta.vercel.app",
   address: "Av. San Martín 586, 1° B · San Carlos de Bariloche",
+  streetAddress: "Av. San Martín 586, 1° B",
+  locality: "San Carlos de Bariloche",
+  region: "Río Negro",
+  postalCode: "8400",
+  country: "AR",
+  // Coordenadas aprox. del centro de San Carlos de Bariloche
+  geo: { lat: -41.1334722, lng: -71.3102778 },
   city: "San Carlos de Bariloche, Patagonia",
   email: "bariloche@yogavital.com.ar",
   whatsapp: "5492944796273", // formato internacional sin + ni espacios
   whatsappDisplay: "+54 9 294 479-6273",
+  phoneE164: "+5492944796273",
   instagram: "@yogavitalbariloche",
+  instagramUrl: "https://www.instagram.com/yogavitalbariloche",
   facebook: "Ayur.Yoga.Vital.Bariloche",
+  facebookUrl: "https://www.facebook.com/Ayur.Yoga.Vital.Bariloche",
   founded: 2009,
   lineage: "Escuela Ayur Yoga Vital · Fundada por Jorge Bidondo (Dev Hansa Natha)",
 };

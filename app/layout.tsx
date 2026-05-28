@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Inter, Fraunces } from "next/font/google";
 import "./globals.css";
+import { site } from "@/lib/data";
+import JsonLd from "@/components/JsonLd";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -17,25 +19,68 @@ const fraunces = Fraunces({
 });
 
 export const metadata: Metadata = {
-  title: "Yoga Vital Bariloche · Rashi · Yoga terapéutico en la Patagonia",
+  metadataBase: new URL(site.url),
+  title: {
+    default: "Yoga Bariloche | Yoga Vital con Rashi · Yoga terapéutico",
+    template: "%s | Yoga Vital Bariloche",
+  },
   description:
-    "Clases de Yoga Vital con Rashi en San Carlos de Bariloche. Yoga terapéutico, meditación con gongs, talleres, baños sonoros y formación profesional al pie de los Andes.",
+    "Yoga en Bariloche: clases de Yoga Vital con Rashi en San Carlos de Bariloche. Yoga terapéutico que une el yoga clásico con el Ayurveda, meditación con gongs, talleres y formación profesional al pie de los Andes.",
+  applicationName: "Yoga Vital Bariloche",
+  authors: [{ name: "Rashi · Yoga Vital Bariloche" }],
+  creator: "Yoga Vital Bariloche",
+  publisher: "Yoga Vital Bariloche",
   keywords: [
-    "Yoga Bariloche",
-    "Yoga Vital",
-    "Ayur Yoga",
+    "yoga bariloche",
+    "yoga vital bariloche",
+    "yoga vital",
+    "clases de yoga bariloche",
+    "yoga terapéutico bariloche",
+    "ayur yoga",
     "Rashi",
-    "Baño de Gong Bariloche",
-    "Yoga terapéutico Patagonia",
-    "Profesorado de Yoga",
+    "baño de gong bariloche",
+    "meditación bariloche",
+    "profesorado de yoga bariloche",
   ],
+  alternates: {
+    canonical: "/",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
   openGraph: {
-    title: "Yoga Vital Bariloche · Rashi",
+    title: "Yoga Bariloche | Yoga Vital con Rashi",
     description:
-      "Yoga terapéutico, meditación con gongs y formación profesional en San Carlos de Bariloche.",
+      "Clases de Yoga Vital, yoga terapéutico, meditación con gongs y formación profesional en San Carlos de Bariloche.",
+    url: site.url,
+    siteName: "Yoga Vital Bariloche",
     locale: "es_AR",
     type: "website",
+    images: [
+      {
+        url: "/og.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Yoga Vital Bariloche con Rashi · amanecer sobre el Nahuel Huapi",
+      },
+    ],
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "Yoga Bariloche | Yoga Vital con Rashi",
+    description:
+      "Clases de Yoga Vital y yoga terapéutico en San Carlos de Bariloche.",
+    images: ["/og.jpg"],
+  },
+  category: "Health",
 };
 
 export default function RootLayout({
@@ -45,7 +90,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="es-AR" className={`${inter.variable} ${fraunces.variable}`}>
-      <body className="bg-sand-50 text-slate-850 antialiased">{children}</body>
+      <body className="bg-sand-50 text-slate-850 antialiased">
+        {children}
+        <JsonLd />
+      </body>
     </html>
   );
 }
