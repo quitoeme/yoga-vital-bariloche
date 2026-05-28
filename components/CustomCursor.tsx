@@ -35,90 +35,92 @@ type Pose = {
   rf: XY; // pie der
 };
 
+// La cabeza queda anclada al puntero (siempre cerca de y≈-16) y el cuerpo
+// cuelga debajo haciendo las asanas, para que el ciclo se note claramente.
 const POSES: Pose[] = [
-  // 1 · Tadasana — montaña
+  // 1 · Tadasana — montaña (brazos al costado)
   {
-    head: { x: 0, y: -15 },
-    neck: { x: 0, y: -10 },
-    hip: { x: 0, y: 4 },
-    le: { x: -4, y: -4 },
-    lh: { x: -5, y: 3 },
-    re: { x: 4, y: -4 },
-    rh: { x: 5, y: 3 },
-    lk: { x: -2.5, y: 12 },
-    lf: { x: -3, y: 21 },
-    rk: { x: 2.5, y: 12 },
-    rf: { x: 3, y: 21 },
+    head: { x: 0, y: -16 },
+    neck: { x: 0, y: -12 },
+    hip: { x: 0, y: 2 },
+    le: { x: -3, y: -6 },
+    lh: { x: -4, y: 2 },
+    re: { x: 3, y: -6 },
+    rh: { x: 4, y: 2 },
+    lk: { x: -2, y: 11 },
+    lf: { x: -2.5, y: 20 },
+    rk: { x: 2, y: 11 },
+    rf: { x: 2.5, y: 20 },
   },
-  // 2 · Urdhva Hastasana — saludo arriba
+  // 2 · Urdhva Hastasana — brazos al cielo
   {
-    head: { x: 0, y: -15 },
-    neck: { x: 0, y: -10 },
-    hip: { x: 0, y: 4 },
-    le: { x: -2, y: -15 },
-    lh: { x: -3, y: -22 },
-    re: { x: 2, y: -15 },
-    rh: { x: 3, y: -22 },
-    lk: { x: -2.5, y: 12 },
-    lf: { x: -3, y: 21 },
-    rk: { x: 2.5, y: 12 },
-    rf: { x: 3, y: 21 },
+    head: { x: 0, y: -16 },
+    neck: { x: 0, y: -12 },
+    hip: { x: 0, y: 2 },
+    le: { x: -2, y: -17 },
+    lh: { x: -3, y: -24 },
+    re: { x: 2, y: -17 },
+    rh: { x: 3, y: -24 },
+    lk: { x: -2, y: 11 },
+    lf: { x: -2.5, y: 20 },
+    rk: { x: 2, y: 11 },
+    rf: { x: 2.5, y: 20 },
   },
-  // 3 · Vrksasana — árbol (manos en namaste arriba, pie a la pierna)
+  // 3 · Vrksasana — el árbol (pie a la pierna, manos en namaste arriba)
   {
-    head: { x: 0, y: -15 },
-    neck: { x: 0, y: -10 },
-    hip: { x: 0, y: 4 },
-    le: { x: -3, y: -14 },
-    lh: { x: -0.5, y: -21 },
-    re: { x: 3, y: -14 },
-    rh: { x: 0.5, y: -21 },
-    lk: { x: -8, y: 7 },
-    lf: { x: 0, y: 9 },
-    rk: { x: 2, y: 12 },
-    rf: { x: 2.5, y: 21 },
+    head: { x: 0, y: -16 },
+    neck: { x: 0, y: -12 },
+    hip: { x: 0, y: 2 },
+    le: { x: -3, y: -16 },
+    lh: { x: -0.5, y: -22 },
+    re: { x: 3, y: -16 },
+    rh: { x: 0.5, y: -22 },
+    lk: { x: -8, y: 6 },
+    lf: { x: 0, y: 7 },
+    rk: { x: 1.5, y: 11 },
+    rf: { x: 2, y: 20 },
   },
   // 4 · Virabhadrasana II — guerrero, brazos extendidos
   {
-    head: { x: 2, y: -13 },
-    neck: { x: 2, y: -8 },
-    hip: { x: 2, y: 5 },
-    le: { x: -4, y: -8 },
-    lh: { x: -12, y: -8 },
-    re: { x: 8, y: -8 },
-    rh: { x: 15, y: -8 },
-    lk: { x: -7, y: 12 },
-    lf: { x: -12, y: 21 },
+    head: { x: 1, y: -15 },
+    neck: { x: 1, y: -11 },
+    hip: { x: 1, y: 3 },
+    le: { x: -5, y: -11 },
+    lh: { x: -13, y: -11 },
+    re: { x: 7, y: -11 },
+    rh: { x: 15, y: -11 },
+    lk: { x: -8, y: 12 },
+    lf: { x: -13, y: 20 },
     rk: { x: 11, y: 9 },
-    rf: { x: 12, y: 21 },
+    rf: { x: 12, y: 20 },
   },
-  // 5 · Trikonasana — triángulo
+  // 5 · Utthita Tadasana — estrella (piernas y brazos abiertos)
   {
-    head: { x: -9, y: -11 },
-    neck: { x: -6, y: -7 },
-    hip: { x: 2, y: 5 },
-    le: { x: -9, y: 0 },
-    lh: { x: -11, y: 9 },
-    re: { x: -2, y: -12 },
-    rh: { x: 0, y: -19 },
-    lk: { x: -10, y: 12 },
+    head: { x: 0, y: -16 },
+    neck: { x: 0, y: -12 },
+    hip: { x: 0, y: 2 },
+    le: { x: -7, y: -15 },
+    lh: { x: -13, y: -19 },
+    re: { x: 7, y: -15 },
+    rh: { x: 13, y: -19 },
+    lk: { x: -7, y: 11 },
+    lf: { x: -11, y: 20 },
+    rk: { x: 7, y: 11 },
+    rf: { x: 11, y: 20 },
+  },
+  // 6 · Virabhadrasana I — guerrero I (estocada profunda, brazos arriba)
+  {
+    head: { x: 2, y: -15 },
+    neck: { x: 2, y: -11 },
+    hip: { x: 2, y: 3 },
+    le: { x: 0, y: -16 },
+    lh: { x: 1, y: -23 },
+    re: { x: 4, y: -16 },
+    rh: { x: 5, y: -23 },
+    lk: { x: -8, y: 13 },
     lf: { x: -13, y: 21 },
-    rk: { x: 9, y: 12 },
-    rf: { x: 12, y: 21 },
-  },
-  // 6 · Uttanasana — pinza de pie
-  {
-    head: { x: 0, y: 13 },
-    neck: { x: 0, y: 8 },
-    hip: { x: 0, y: -3 },
-    le: { x: -2, y: 12 },
-    lh: { x: -2.5, y: 19 },
-    re: { x: 2, y: 12 },
-    rh: { x: 2.5, y: 19 },
-    lk: { x: -3, y: 9 },
-    lf: { x: -3, y: 21 },
-    rk: { x: 3, y: 9 },
-    rf: { x: 3, y: 21 },
+    rk: { x: 10, y: 9 },
+    rf: { x: 11, y: 20 },
   },
 ];
 
@@ -216,26 +218,30 @@ export default function CustomCursor() {
         }
         className="relative -translate-x-1/2 -translate-y-1/2 mix-blend-difference"
       >
-        <svg width="68" height="68" viewBox="-34 -34 68 68">
-          {/* tronco */}
-          {line(p.neck, p.hip, "torso")}
-          {/* brazos */}
-          {line(p.neck, p.le, "uarmL")}
-          {line(p.le, p.lh, "farmL")}
-          {line(p.neck, p.re, "uarmR")}
-          {line(p.re, p.rh, "farmR")}
-          {/* piernas */}
-          {line(p.hip, p.lk, "thighL")}
-          {line(p.lk, p.lf, "shinL")}
-          {line(p.hip, p.rk, "thighR")}
-          {line(p.rk, p.rf, "shinR")}
-          {/* cabeza */}
-          <motion.circle
-            r={4}
-            fill={C}
-            animate={{ cx: p.head.x, cy: p.head.y }}
-            transition={flow}
-          />
+        <svg width="76" height="76" viewBox="-38 -38 76 76">
+          {/* Trasladamos todo por -head: así la CABEZA queda siempre en el
+              punto del cursor (el origen 0,0) y el cuerpo cuelga debajo. */}
+          <motion.g animate={{ x: -p.head.x, y: -p.head.y }} transition={flow}>
+            {/* tronco */}
+            {line(p.neck, p.hip, "torso")}
+            {/* brazos */}
+            {line(p.neck, p.le, "uarmL")}
+            {line(p.le, p.lh, "farmL")}
+            {line(p.neck, p.re, "uarmR")}
+            {line(p.re, p.rh, "farmR")}
+            {/* piernas */}
+            {line(p.hip, p.lk, "thighL")}
+            {line(p.lk, p.lf, "shinL")}
+            {line(p.hip, p.rk, "thighR")}
+            {line(p.rk, p.rf, "shinR")}
+            {/* cabeza */}
+            <motion.circle
+              r={4}
+              fill={C}
+              animate={{ cx: p.head.x, cy: p.head.y }}
+              transition={flow}
+            />
+          </motion.g>
         </svg>
 
         {label && (
