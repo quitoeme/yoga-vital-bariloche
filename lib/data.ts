@@ -109,23 +109,19 @@ export type ScheduleSlot = {
 };
 
 export const schedule: ScheduleSlot[] = [
-  { day: "Lun", start: "10:00", end: "11:15", classId: "vital", groupName: "Grupo Mañana", spotsLeft: 3 },
-  { day: "Lun", start: "18:30", end: "19:45", classId: "uccara", groupName: "Grupo Uccara", spotsLeft: 2 },
-  { day: "Lun", start: "20:00", end: "21:00", classId: "meditacion", groupName: "Cierre del día", spotsLeft: 6 },
-  { day: "Mar", start: "10:00", end: "11:15", classId: "terapeutico", groupName: "Terapéutico AM", spotsLeft: 1 },
-  { day: "Mar", start: "16:00", end: "17:00", classId: "adultos", groupName: "Adultos mayores", spotsLeft: 5 },
-  { day: "Mar", start: "18:30", end: "19:45", classId: "vital", groupName: "Vital tarde", spotsLeft: 4 },
-  { day: "Mié", start: "10:00", end: "11:15", classId: "vital", groupName: "Grupo Mañana", spotsLeft: 3 },
-  { day: "Mié", start: "17:30", end: "18:30", classId: "embarazo", groupName: "Embarazo", spotsLeft: 4 },
-  { day: "Mié", start: "19:00", end: "20:15", classId: "uccara", groupName: "Grupo Uccara", spotsLeft: 0 },
-  { day: "Jue", start: "10:00", end: "11:15", classId: "terapeutico", groupName: "Terapéutico AM", spotsLeft: 2 },
-  { day: "Jue", start: "18:30", end: "19:45", classId: "vital", groupName: "Vital tarde", spotsLeft: 5 },
-  { day: "Vie", start: "10:00", end: "11:15", classId: "vital", groupName: "Grupo Mañana", spotsLeft: 4 },
-  { day: "Vie", start: "19:00", end: "20:30", classId: "meditacion", groupName: "Gongs · Cierre semana", spotsLeft: 8 },
-  { day: "Sáb", start: "10:00", end: "11:30", classId: "uccara", groupName: "Sábado vital", spotsLeft: 6 },
+  { day: "Lun", start: "14:00", end: "15:00", classId: "vital", groupName: "Grupo Mediodía", spotsLeft: 5 },
+  { day: "Lun", start: "16:30", end: "17:30", classId: "vital", groupName: "Grupo Tarde", spotsLeft: 4 },
+  { day: "Mar", start: "09:30", end: "10:30", classId: "vital", groupName: "Grupo Mañana", spotsLeft: 6 },
+  { day: "Mar", start: "19:00", end: "20:00", classId: "vital", groupName: "Grupo Noche", spotsLeft: 3 },
+  { day: "Mar", start: "20:30", end: "21:30", classId: "vital", groupName: "Grupo Noche II", spotsLeft: 4 },
+  { day: "Mié", start: "14:00", end: "15:00", classId: "vital", groupName: "Grupo Mediodía", spotsLeft: 5 },
+  { day: "Mié", start: "16:30", end: "17:30", classId: "vital", groupName: "Grupo Tarde", spotsLeft: 2 },
+  { day: "Jue", start: "19:00", end: "20:00", classId: "vital", groupName: "Grupo Noche", spotsLeft: 4 },
+  { day: "Jue", start: "20:30", end: "21:30", classId: "vital", groupName: "Grupo Noche II", spotsLeft: 5 },
+  { day: "Vie", start: "09:30", end: "10:30", classId: "vital", groupName: "Grupo Mañana", spotsLeft: 6 },
 ];
 
-export const days: ScheduleSlot["day"][] = ["Lun", "Mar", "Mié", "Jue", "Vie", "Sáb"];
+export const days: ScheduleSlot["day"][] = ["Lun", "Mar", "Mié", "Jue", "Vie"];
 
 export type Course = {
   id: string;

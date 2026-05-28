@@ -12,6 +12,13 @@ export default function Schedule() {
   );
   const [activeClass, setActiveClass] = useState<string | "todas">("todas");
 
+  // Solo ofrecemos como filtro las clases que realmente tienen horarios,
+  // así nunca se muestra una semana vacía.
+  const scheduledClasses = useMemo(
+    () => classFeatures.filter((c) => schedule.some((s) => s.classId === c.id)),
+    []
+  );
+
   const filtered = activeClass === "todas"
     ? schedule
     : schedule.filter((s) => s.classId === activeClass);
@@ -43,7 +50,7 @@ export default function Schedule() {
             <FilterBtn active={activeClass === "todas"} onClick={() => setActiveClass("todas")}>
               Todas
             </FilterBtn>
-            {classFeatures.map((c) => (
+            {scheduledClasses.map((c) => (
               <FilterBtn
                 key={c.id}
                 active={activeClass === c.id}
@@ -57,7 +64,7 @@ export default function Schedule() {
 
         {/* Vista escritorio */}
         <div className="hidden md:block bg-sand-100/60 border border-moss-100 rounded-3xl p-6">
-          <div className="grid grid-cols-6 gap-3 mb-3">
+          <div className="grid grid-cols-5 gap-3 mb-3">
             {days.map((d) => (
               <div key={d} className="text-center">
                 <span className="block text-xs uppercase tracking-[0.25em] text-violet-500">
@@ -66,7 +73,7 @@ export default function Schedule() {
               </div>
             ))}
           </div>
-          <div className="grid grid-cols-6 gap-3">
+          <div className="grid grid-cols-5 gap-3">
             {days.map((d) => (
               <div key={d} className="flex flex-col gap-3 min-h-[200px]">
                 {filtered
