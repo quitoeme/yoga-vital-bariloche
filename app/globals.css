@@ -153,16 +153,6 @@ body {
   }
 }
 
-/* Si el usuario pidió menos movimiento, devolvemos el cursor del sistema */
-@media (prefers-reduced-motion: reduce) {
-  html,
-  body,
-  a,
-  button {
-    cursor: auto !important;
-  }
-}
-
 /* Util para reducir motion */
 @media (prefers-reduced-motion: reduce) {
   *,

@@ -174,12 +174,11 @@ export default function CustomCursor() {
     };
   }, [cursorX, cursorY]);
 
-  // Ciclo de asanas — respeta prefers-reduced-motion (queda en quietud).
+  // Ciclo de asanas en bucle.
   useEffect(() => {
     if (!enabled) return;
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     const id = setInterval(() => {
-      setPose((p) => (p + 1) % POSES.length);
+      setPose((prev) => (prev + 1) % POSES.length);
     }, 1500);
     return () => clearInterval(id);
   }, [enabled]);
@@ -190,16 +189,17 @@ export default function CustomCursor() {
   const C = "#FBF7F0";
   const flow = { duration: 0.85, ease: [0.45, 0, 0.25, 1] as const };
 
-  const line = (a: XY, b: XY, key: string) => (
-    <motion.line
-      key={key}
-      stroke={C}
-      strokeWidth={2.4}
-      strokeLinecap="round"
-      animate={{ x1: a.x, y1: a.y, x2: b.x, y2: b.y }}
-      transition={flow}
-    />
-  );
+  // Todas las coordenadas se expresan RELATIVAS a la cabeza, de modo que la
+  // cabeza siempre cae en (0,0) = el punto exacto del cursor.
+  const r = (j: XY) =>
+    `${(j.x - p.head.x).toFixed(2)} ${(j.y - p.head.y).toFixed(2)}`;
+
+  // Un solo trazo continuo: brazos → tronco → piernas. La cantidad de
+  // comandos es constante entre poses, así framer-motion interpola el "d".
+  const body =
+    `M ${r(p.lh)} L ${r(p.le)} L ${r(p.neck)} L ${r(p.re)} L ${r(p.rh)} ` +
+    `M ${r(p.neck)} L ${r(p.hip)} ` +
+    `M ${r(p.lf)} L ${r(p.lk)} L ${r(p.hip)} L ${r(p.rk)} L ${r(p.rf)}`;
 
   return (
     <motion.div
@@ -219,29 +219,19 @@ export default function CustomCursor() {
         className="relative -translate-x-1/2 -translate-y-1/2 mix-blend-difference"
       >
         <svg width="76" height="76" viewBox="-38 -38 76 76">
-          {/* Trasladamos todo por -head: así la CABEZA queda siempre en el
-              punto del cursor (el origen 0,0) y el cuerpo cuelga debajo. */}
-          <motion.g animate={{ x: -p.head.x, y: -p.head.y }} transition={flow}>
-            {/* tronco */}
-            {line(p.neck, p.hip, "torso")}
-            {/* brazos */}
-            {line(p.neck, p.le, "uarmL")}
-            {line(p.le, p.lh, "farmL")}
-            {line(p.neck, p.re, "uarmR")}
-            {line(p.re, p.rh, "farmR")}
-            {/* piernas */}
-            {line(p.hip, p.lk, "thighL")}
-            {line(p.lk, p.lf, "shinL")}
-            {line(p.hip, p.rk, "thighR")}
-            {line(p.rk, p.rf, "shinR")}
-            {/* cabeza */}
-            <motion.circle
-              r={4}
-              fill={C}
-              animate={{ cx: p.head.x, cy: p.head.y }}
-              transition={flow}
-            />
-          </motion.g>
+          {/* Cuerpo: un único path que se transforma entre asanas */}
+          <motion.path
+            fill="none"
+            stroke={C}
+            strokeWidth={2.6}
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            initial={false}
+            animate={{ d: body }}
+            transition={flow}
+          />
+          {/* Cabeza: fija en (0,0) = el punto del cursor */}
+          <circle cx={0} cy={0} r={4} fill={C} />
         </svg>
 
         {label && (
