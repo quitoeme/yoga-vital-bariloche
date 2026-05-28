@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { motion, useMotionValue, useSpring } from "framer-motion";
+import { motion, useMotionValue } from "framer-motion";
 
 /**
  * Cursor stickman que fluye por 6 asanas en bucle — un guiño a Uccara®,
@@ -125,10 +125,10 @@ const POSES: Pose[] = [
 ];
 
 export default function CustomCursor() {
-  const cursorX = useMotionValue(-200);
-  const cursorY = useMotionValue(-200);
-  const x = useSpring(cursorX, { damping: 26, stiffness: 300, mass: 0.5 });
-  const y = useSpring(cursorY, { damping: 26, stiffness: 300, mass: 0.5 });
+  // Seguimiento directo (sin spring) para que la CABEZA caiga exactamente
+  // en el punto del puntero, sin retardo/arrastre.
+  const x = useMotionValue(-200);
+  const y = useMotionValue(-200);
 
   const [enabled, setEnabled] = useState(false);
   const [visible, setVisible] = useState(true);
@@ -143,8 +143,8 @@ export default function CustomCursor() {
     setEnabled(true);
 
     const move = (e: MouseEvent) => {
-      cursorX.set(e.clientX);
-      cursorY.set(e.clientY);
+      x.set(e.clientX);
+      y.set(e.clientY);
     };
     const over = (e: MouseEvent) => {
       const t = e.target as HTMLElement;
@@ -172,7 +172,7 @@ export default function CustomCursor() {
       document.removeEventListener("mouseenter", enter);
       document.removeEventListener("mouseleave", leave);
     };
-  }, [cursorX, cursorY]);
+  }, [x, y]);
 
   // Ciclo de asanas en bucle.
   useEffect(() => {
@@ -210,16 +210,20 @@ export default function CustomCursor() {
       className="pointer-events-none fixed left-0 top-0 z-[100] hidden lg:block"
       aria-hidden
     >
-      <motion.div
-        animate={{ scale: pressed ? 0.85 : [1, 1.04, 1] }}
-        transition={
-          pressed
-            ? { duration: 0.18, ease: "easeOut" }
-            : { duration: 5, repeat: Infinity, ease: "easeInOut" }
-        }
-        className="relative -translate-x-1/2 -translate-y-1/2"
-      >
-        <svg width="76" height="76" viewBox="-38 -38 76 76">
+      {/* Centrado con CSS puro (un div sin animaciones de framer), para que
+          el transform de la "respiración" no pise el -translate y la cabeza
+          quede EXACTAMENTE en el puntero. */}
+      <div className="relative -translate-x-1/2 -translate-y-1/2">
+        <motion.div
+          animate={{ scale: pressed ? 0.85 : [1, 1.04, 1] }}
+          transition={
+            pressed
+              ? { duration: 0.18, ease: "easeOut" }
+              : { duration: 5, repeat: Infinity, ease: "easeInOut" }
+          }
+          style={{ transformOrigin: "38px 38px" }}
+        >
+          <svg width="76" height="76" viewBox="-38 -38 76 76">
           {/* Contorno oscuro (halo): hace que el cuerpo blanco se lea sobre
               cualquier fondo, claro u oscuro. */}
           <motion.path
@@ -244,9 +248,10 @@ export default function CustomCursor() {
             animate={{ d: body }}
             transition={flow}
           />
-          {/* Cabeza: fija en (0,0) = el punto del cursor, blanca con aro oscuro */}
-          <circle cx={0} cy={0} r={4.1} fill={WHITE} stroke={INK} strokeWidth={1.5} />
-        </svg>
+            {/* Cabeza: fija en (0,0) = el punto del cursor, blanca con aro oscuro */}
+            <circle cx={0} cy={0} r={4.1} fill={WHITE} stroke={INK} strokeWidth={1.5} />
+          </svg>
+        </motion.div>
 
         {label && (
           <motion.span
@@ -259,7 +264,7 @@ export default function CustomCursor() {
             {label}
           </motion.span>
         )}
-      </motion.div>
+      </div>
     </motion.div>
   );
 }
