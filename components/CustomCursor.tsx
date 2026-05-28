@@ -186,7 +186,8 @@ export default function CustomCursor() {
   if (!enabled) return null;
 
   const p = POSES[pose];
-  const C = "#FBF7F0";
+  const WHITE = "#FFFFFF";
+  const INK = "#14120E"; // casi negro, cálido para acompañar la paleta
   const flow = { duration: 0.85, ease: [0.45, 0, 0.25, 1] as const };
 
   // Todas las coordenadas se expresan RELATIVAS a la cabeza, de modo que la
@@ -216,13 +217,26 @@ export default function CustomCursor() {
             ? { duration: 0.18, ease: "easeOut" }
             : { duration: 5, repeat: Infinity, ease: "easeInOut" }
         }
-        className="relative -translate-x-1/2 -translate-y-1/2 mix-blend-difference"
+        className="relative -translate-x-1/2 -translate-y-1/2"
       >
         <svg width="76" height="76" viewBox="-38 -38 76 76">
-          {/* Cuerpo: un único path que se transforma entre asanas */}
+          {/* Contorno oscuro (halo): hace que el cuerpo blanco se lea sobre
+              cualquier fondo, claro u oscuro. */}
           <motion.path
             fill="none"
-            stroke={C}
+            stroke={INK}
+            strokeWidth={5.6}
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            initial={false}
+            animate={{ d: body }}
+            transition={flow}
+            style={{ opacity: 0.65 }}
+          />
+          {/* Cuerpo blanco: un único path que se transforma entre asanas */}
+          <motion.path
+            fill="none"
+            stroke={WHITE}
             strokeWidth={2.6}
             strokeLinecap="round"
             strokeLinejoin="round"
@@ -230,8 +244,8 @@ export default function CustomCursor() {
             animate={{ d: body }}
             transition={flow}
           />
-          {/* Cabeza: fija en (0,0) = el punto del cursor */}
-          <circle cx={0} cy={0} r={4} fill={C} />
+          {/* Cabeza: fija en (0,0) = el punto del cursor, blanca con aro oscuro */}
+          <circle cx={0} cy={0} r={4.1} fill={WHITE} stroke={INK} strokeWidth={1.5} />
         </svg>
 
         {label && (
