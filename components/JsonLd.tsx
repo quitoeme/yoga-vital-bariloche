@@ -31,9 +31,9 @@ export default function JsonLd() {
     "@type": ["LocalBusiness", "HealthClub", "SportsActivityLocation"],
     "@id": `${site.url}/#business`,
     name: site.name,
-    alternateName: ["Yoga Vital", "Ayur Yoga Vital Bariloche", "Yoga Bariloche"],
+    alternateName: ["Ayur Yoga Vital", "Ayur Yoga Vital Bariloche", "Yoga Bariloche"],
     description:
-      "Estudio de Yoga Vital en San Carlos de Bariloche con Rashi. Yoga terapéutico que une el yoga clásico con el Ayurveda, meditación con gongs, talleres y formación profesional.",
+      "Estudio de Ayur Yoga Vital en San Carlos de Bariloche con Rashi. Yoga terapéutico que une el yoga clásico con el Ayurveda, meditación con gongs, talleres y formación profesional.",
     url: site.url,
     image: `${site.url}/og.jpg`,
     logo: `${site.url}/og.jpg`,
@@ -62,7 +62,7 @@ export default function JsonLd() {
     knowsAbout: [
       "Yoga",
       "Yoga terapéutico",
-      "Yoga Vital",
+      "Ayur Yoga Vital",
       "Ayurveda",
       "Meditación",
       "Baño de gongs",
@@ -74,7 +74,7 @@ export default function JsonLd() {
       "@type": "Person",
       name: site.teacherFullName,
       alternateName: site.teacher,
-      jobTitle: "Instructor de Yoga Vital",
+      jobTitle: "Instructor de Ayur Yoga Vital",
     },
   };
 

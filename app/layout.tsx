@@ -21,19 +21,19 @@ const fraunces = Fraunces({
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: "Yoga Bariloche | Yoga Vital con Rashi · Yoga terapéutico",
-    template: "%s | Yoga Vital Bariloche",
+    default: "Yoga Bariloche | Ayur Yoga Vital con Rashi · Yoga terapéutico",
+    template: "%s | Ayur Yoga Vital Bariloche",
   },
   description:
-    "Yoga en Bariloche: clases de Yoga Vital con Rashi en San Carlos de Bariloche. Yoga terapéutico que une el yoga clásico con el Ayurveda, meditación con gongs, talleres y formación profesional al pie de los Andes.",
-  applicationName: "Yoga Vital Bariloche",
-  authors: [{ name: "Rashi · Yoga Vital Bariloche" }],
-  creator: "Yoga Vital Bariloche",
-  publisher: "Yoga Vital Bariloche",
+    "Yoga en Bariloche: clases de Ayur Yoga Vital con Rashi en San Carlos de Bariloche. Yoga terapéutico que une el yoga clásico con el Ayurveda, meditación con gongs, talleres y formación profesional al pie de los Andes.",
+  applicationName: "Ayur Yoga Vital Bariloche",
+  authors: [{ name: "Rashi · Ayur Yoga Vital Bariloche" }],
+  creator: "Ayur Yoga Vital Bariloche",
+  publisher: "Ayur Yoga Vital Bariloche",
   keywords: [
     "yoga bariloche",
-    "yoga vital bariloche",
-    "yoga vital",
+    "ayur yoga vital bariloche",
+    "ayur yoga vital",
     "clases de yoga bariloche",
     "yoga terapéutico bariloche",
     "ayur yoga",
@@ -57,11 +57,11 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Yoga Bariloche | Yoga Vital con Rashi",
+    title: "Yoga Bariloche | Ayur Yoga Vital con Rashi",
     description:
-      "Clases de Yoga Vital, yoga terapéutico, meditación con gongs y formación profesional en San Carlos de Bariloche.",
+      "Clases de Ayur Yoga Vital, yoga terapéutico, meditación con gongs y formación profesional en San Carlos de Bariloche.",
     url: site.url,
-    siteName: "Yoga Vital Bariloche",
+    siteName: "Ayur Yoga Vital Bariloche",
     locale: "es_AR",
     type: "website",
     images: [
@@ -69,15 +69,15 @@ export const metadata: Metadata = {
         url: "/og.jpg",
         width: 1200,
         height: 630,
-        alt: "Yoga Vital Bariloche con Rashi · amanecer sobre el Nahuel Huapi",
+        alt: "Ayur Yoga Vital Bariloche con Rashi · amanecer sobre el Nahuel Huapi",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Yoga Bariloche | Yoga Vital con Rashi",
+    title: "Yoga Bariloche | Ayur Yoga Vital con Rashi",
     description:
-      "Clases de Yoga Vital y yoga terapéutico en San Carlos de Bariloche.",
+      "Clases de Ayur Yoga Vital y yoga terapéutico en San Carlos de Bariloche.",
     images: ["/og.jpg"],
   },
   category: "Health",

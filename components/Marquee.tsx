@@ -1,7 +1,7 @@
 "use client";
 
 const phrases = [
-  "Yoga Vital",
+  "Ayur Yoga Vital",
   "Ayur Yoga Terapéutico",
   "Baños de Gong",
   "Meditación",

@@ -26,7 +26,7 @@ export default function AboutRashi() {
             <div className="relative aspect-[4/5] rounded-[2rem] overflow-hidden shadow-2xl shadow-violet-800/25">
               <Image
                 src="/rashi.jpg"
-                alt={`${aboutRashi.fullName} dando clase de Yoga Vital`}
+                alt={`${aboutRashi.fullName} dando clase de Ayur Yoga Vital`}
                 fill
                 sizes="(min-width: 1024px) 40vw, 90vw"
                 quality={88}
@@ -38,7 +38,7 @@ export default function AboutRashi() {
               <div className="absolute bottom-6 left-6 text-sand-50">
                 <p className="font-display italic text-lg">{aboutRashi.name}</p>
                 <p className="text-xs uppercase tracking-[0.25em] opacity-80">
-                  Coordinador regional Bariloche · Yoga Vital
+                  Coordinador regional Bariloche · Ayur Yoga Vital
                 </p>
               </div>
             </div>
@@ -60,7 +60,7 @@ export default function AboutRashi() {
                   fontFamily="var(--font-inter)"
                 >
                   <textPath href="#rashi-circle">
-                    Yoga Vital · Bariloche · Yoga Vital · Bariloche ·
+                    Ayur Yoga Vital · Bariloche · Ayur Yoga Vital · Bariloche ·
                   </textPath>
                 </text>
               </svg>
@@ -75,7 +75,7 @@ export default function AboutRashi() {
             transition={{ duration: 0.8 }}
             className="lg:col-span-7"
           >
-            <span className="section-eyebrow">El maestro</span>
+            <span className="section-eyebrow">Un aprendiz · un buscador</span>
             <h2 className="font-display text-4xl md:text-5xl lg:text-6xl text-violet-800 mt-5 leading-[1.05]">
               Quién es <span className="italic text-violet-500">{aboutRashi.name}</span>
             </h2>
@@ -110,7 +110,7 @@ export default function AboutRashi() {
                   data-cursor-label="hablar"
                   className="btn-primary"
                 >
-                  Hablar con {site.teacher}
+                  Habla con {site.teacher}
                 </a>
               </Magnetic>
             </div>

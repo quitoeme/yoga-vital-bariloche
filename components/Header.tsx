@@ -7,7 +7,7 @@ import { site } from "@/lib/data";
 import Magnetic from "./Magnetic";
 
 const links = [
-  { href: "#yoga-vital", label: "Yoga Vital" },
+  { href: "#yoga-vital", label: "Ayur Yoga Vital" },
   { href: "#rashi", label: "Rashi" },
   { href: "#clases", label: "Clases" },
   { href: "#horarios", label: "Horarios" },
@@ -42,14 +42,14 @@ export default function Header() {
                 scrolled ? "text-violet-800" : "text-sand-50"
               }`}
             >
-              {site.name}
+              {site.headerName}
             </div>
             <div
               className={`text-[10px] uppercase tracking-[0.28em] transition-colors ${
                 scrolled ? "text-violet-500" : "text-violet-200"
               }`}
             >
-              con {site.teacher}
+              Con {site.teacher}
             </div>
           </div>
         </a>

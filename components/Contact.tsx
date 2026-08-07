@@ -75,7 +75,7 @@ export default function Contact() {
                 style={{ border: 0 }}
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title="Mapa estudio Yoga Vital Bariloche"
+                title="Mapa estudio Ayur Yoga Vital Bariloche"
               />
               <div className="absolute inset-0 pointer-events-none ring-1 ring-inset ring-cedar-400/30" />
             </div>

@@ -29,8 +29,7 @@ export default function AboutYogaVital() {
           <motion.div variants={fadeUp} className="lg:col-span-5 lg:sticky lg:top-32">
             <span className="section-eyebrow">La práctica</span>
             <h2 className="font-display text-4xl md:text-5xl lg:text-6xl text-violet-800 mt-5 leading-[1.05]">
-              Qué es{" "}
-              <span className="italic text-violet-500">Yoga Vital</span>
+              Qué es <span className="italic text-violet-500">Ayur Yoga</span>?
             </h2>
             <p className="mt-6 text-violet-800/80 text-lg leading-relaxed">
               {yogaVitalPhilosophy.whatIs}
@@ -73,7 +72,7 @@ function BreathingCircle() {
       <div className="absolute left-6 top-6 w-32 h-32 rounded-full border border-cedar-400/50 animate-breathe [animation-delay:1s]" />
       <div className="absolute left-12 top-12 w-20 h-20 rounded-full bg-moss-600/20 animate-breathe [animation-delay:2s]" />
       <span className="absolute left-56 top-20 text-xs text-violet-500 italic font-display">
-        Inhala. Exhala. Vuelve.
+        Inhala. Exhala. Siente tu corazón.
       </span>
     </div>
   );

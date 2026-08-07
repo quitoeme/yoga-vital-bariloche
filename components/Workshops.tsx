@@ -28,8 +28,10 @@ export default function Workshops() {
             </h2>
           </div>
           <p className="lg:col-span-5 text-violet-800/70 text-lg leading-relaxed">
-            Profundizaciones cortas para sumar a tu práctica regular. Podés
-            anotarte en uno suelto o seguirlos como ciclo.
+            Formaciones cortas que se complementan entre sí, cuyo contenido
+            vas a poder sumar a tus prácticas regulares. Podés sumarte a cada
+            formación por separado o como un ciclo completo de talleres que
+            se convierten en una gran formación troncal.
           </p>
         </motion.div>
 
@@ -65,20 +67,25 @@ export default function Workshops() {
                   {w.description}
                 </p>
 
-                <div className="mt-5 flex flex-wrap items-center gap-x-5 gap-y-2 text-xs text-violet-800/65">
+                <div className="mt-5 flex flex-wrap items-center gap-x-4 gap-y-2 text-xs text-violet-800/65">
                   <span className="flex items-center gap-1.5">
                     <Calendar size={12} />
-                    {w.nextDate}
+                    {w.day}
                   </span>
                   <span className="flex items-center gap-1.5">
                     <Clock size={12} />
                     {w.duration}
                   </span>
-                  <span className="font-medium text-violet-500">{w.price}</span>
+                  <span className="px-2 py-0.5 rounded-full bg-moss-100 text-violet-700 text-[10px] uppercase tracking-wide">
+                    {w.sessionType}
+                  </span>
+                  <span className="px-2 py-0.5 rounded-full bg-moss-100 text-violet-700 text-[10px] uppercase tracking-wide">
+                    {w.modality}
+                  </span>
                 </div>
 
                 <div className="mt-5 inline-flex items-center gap-2 text-sm text-violet-800 font-medium group-hover:gap-3 transition-all">
-                  Anotarme <ArrowRight size={14} />
+                  Participar <ArrowRight size={14} />
                 </div>
               </div>
             </motion.button>
@@ -116,13 +123,14 @@ export default function Workshops() {
             </p>
             <div className="mt-4 text-sm text-violet-800/85">
               <p>
-                <strong>Próximo:</strong> {active.nextDate}
+                <strong>Cuándo:</strong> {active.recurrence} · {active.day}
               </p>
               <p>
                 <strong>Duración:</strong> {active.duration}
               </p>
               <p>
-                <strong>Inversión:</strong> {active.price}
+                <strong>Modalidad:</strong> {active.modality} ·{" "}
+                {active.sessionType}
               </p>
             </div>
             <a
@@ -130,14 +138,14 @@ export default function Workshops() {
                 workshopMessage({
                   name: "[tu nombre]",
                   workshop: active.title,
-                  date: active.nextDate,
+                  date: active.recurrence,
                 })
               )}
               target="_blank"
               rel="noopener noreferrer"
               className="btn-primary mt-6 w-full justify-center"
             >
-              Anotarme por WhatsApp
+              Participar por WhatsApp
             </a>
           </motion.div>
         </div>

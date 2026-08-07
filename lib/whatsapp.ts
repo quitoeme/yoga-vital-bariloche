@@ -65,5 +65,5 @@ Gracias!`;
 }
 
 export function generalMessage(): string {
-  return `Hola Rashi! Vi la web de Yoga Vital Bariloche y quiero consultarte sobre las clases.`;
+  return `Hola Rashi! Vi la web de Ayur Yoga Vital Bariloche y quiero consultarte sobre las clases.`;
 }

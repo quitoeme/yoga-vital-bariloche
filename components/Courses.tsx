@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { GraduationCap, Calendar, Clock, ArrowUpRight } from "lucide-react";
+import { GraduationCap, Calendar, ArrowUpRight } from "lucide-react";
 import { courses } from "@/lib/data";
 import { buildWhatsappLink, courseMessage } from "@/lib/whatsapp";
 
@@ -45,9 +45,11 @@ export default function Courses() {
             <span className="italic text-sand-200">en serio</span>
           </h2>
           <p className="mt-6 text-sand-100/85 text-lg leading-relaxed">
-            Tres niveles de formación con certificación oficial de la Escuela Ayur
-            Yoga Vital. No son cursos express: son procesos de transformación
-            personal y profesional.
+            Niveles de formación pensados para vos. Con certificación oficial
+            de la Escuela AYVIS · Ayur Yoga Vital International School y
+            validaciones internacionales. Son cursos diseñados a tu tiempo y
+            posibilidad: un camino de transformación personal y profesional,
+            con acompañamiento y guía personalizada.
           </p>
         </motion.div>
 
@@ -93,13 +95,8 @@ export default function Courses() {
                 ))}
               </ul>
 
-              <div className="mt-6 pt-5 border-t border-moss-100 grid grid-cols-2 gap-2 text-[12px] text-violet-800/70">
-                <span className="flex items-center gap-1.5">
-                  <Clock size={12} /> {c.duration}
-                </span>
-                <span className="flex items-center gap-1.5">
-                  <Calendar size={12} /> {c.format}
-                </span>
+              <div className="mt-6 pt-5 border-t border-moss-100 flex items-center gap-1.5 text-[12px] text-violet-800/70">
+                <Calendar size={12} /> {c.format}
               </div>
 
               <div className="mt-3 text-[12px] text-violet-500 font-medium">

@@ -39,10 +39,11 @@ export default function Schedule() {
           <div className="max-w-2xl">
             <span className="section-eyebrow">Cuadro semanal</span>
             <h2 className="font-display text-4xl md:text-5xl lg:text-6xl text-violet-800 mt-5 leading-[1.05]">
-              Horarios y <span className="italic text-violet-500">grupos abiertos</span>
+              Horarios y <span className="italic text-violet-500">grupos a tu medida</span>
             </h2>
             <p className="mt-5 text-violet-800/70 text-lg leading-relaxed">
-              Grupos chicos. Reservás un mes completo y el lugar es tuyo cada semana.
+              Grupos pequeños. Grandes logros. Reservá tu estadía de mes
+              completo y accedé a los beneficios extras de cada semana.
             </p>
           </div>
 
@@ -111,8 +112,9 @@ export default function Schedule() {
         </div>
 
         <p className="mt-8 text-sm text-violet-800/60 italic">
-          *Los lugares disponibles se actualizan semanalmente. Una clase suelta para
-          probar también es posible — escribinos por WhatsApp.
+          *La disponibilidad de los lugares se actualiza semanalmente. Una
+          clase libre para probar también es posible — escribinos por
+          WhatsApp.
         </p>
       </div>
     </section>
@@ -171,17 +173,11 @@ function SlotCard({
       </div>
       <div className="mt-2 flex items-center justify-between text-[11px]">
         <span className="text-violet-800/60">{slot.groupName}</span>
-        <span
-          className={`px-2 py-0.5 rounded-full text-[10px] font-medium ${
-            full
-              ? "bg-cedar-700/20 text-violet-700"
-              : slot.spotsLeft <= 2
-              ? "bg-cedar-400/20 text-violet-500"
-              : "bg-moss-200/60 text-violet-800"
-          }`}
-        >
-          {full ? "Sin cupo" : `${slot.spotsLeft} libres`}
-        </span>
+        {full && (
+          <span className="px-2 py-0.5 rounded-full text-[10px] font-medium bg-cedar-700/20 text-violet-700">
+            Sin cupo
+          </span>
+        )}
       </div>
     </a>
   );

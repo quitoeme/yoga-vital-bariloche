@@ -47,7 +47,7 @@ export default function Reservation() {
   const [month, setMonth] = useState(months[0]);
 
   const slot = available.find((s) => keyOf(s) === slotKey) ?? available[0];
-  const classTitle = classMap[slot.classId]?.title ?? "Yoga Vital";
+  const classTitle = classMap[slot.classId]?.title ?? "Ayur Yoga Vital";
 
   const ready = name.trim().length > 1;
 
@@ -81,18 +81,18 @@ export default function Reservation() {
           >
             <span className="section-eyebrow">Reservá tu lugar</span>
             <h2 className="font-display text-4xl md:text-5xl text-violet-800 mt-5 leading-[1.05]">
-              Un mes completo,{" "}
+              Un mes completo de bienestar,{" "}
               <span className="italic text-violet-500">tu lugar fijo</span>
             </h2>
             <p className="mt-5 text-violet-800/75 text-lg leading-relaxed">
-              Elegí el grupo y el mes. Te aseguramos tu lugar y Rashi recibe la
+              Elegí el grupo y el mes. Te aseguramos tu lugar y Rashi recibe tu
               reserva al instante por WhatsApp.
             </p>
 
             <ul className="mt-8 space-y-3">
               {[
-                "Cupo reservado durante 48hs después de enviar",
-                "Coordinás forma de pago directamente con Rashi",
+                "Coordinás forma de pagos",
+                "Clases presenciales y online",
                 "Podés probar una clase antes de reservar el mes",
               ].map((b) => (
                 <li
@@ -179,7 +179,7 @@ export default function Reservation() {
                           active ? "text-sand-100/85" : "text-violet-800/60"
                         }`}
                       >
-                        {s.groupName} · {s.spotsLeft} libres
+                        {s.groupName}
                       </div>
                     </button>
                   );

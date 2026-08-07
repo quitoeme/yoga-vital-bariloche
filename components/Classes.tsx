@@ -35,12 +35,12 @@ export default function Classes() {
             Las prácticas
           </span>
           <h2 className="font-display text-4xl md:text-5xl lg:text-6xl mt-5 leading-[1.05]">
-            Seis caminos,{" "}
-            <span className="italic text-violet-300">una misma raíz</span>
+            Muchos caminos,{" "}
+            <span className="italic text-violet-300">un solo objetivo: tu bienestar</span>
           </h2>
           <p className="mt-6 text-sand-100/80 text-lg leading-relaxed">
-            Cada clase tiene su carácter. Elegí la que más se acerque a lo que tu
-            cuerpo está pidiendo hoy.
+            Cada clase tiene una tónica particular. Elegí la que más sientas
+            que tu Ser esté necesitando hoy.
           </p>
         </motion.div>
 

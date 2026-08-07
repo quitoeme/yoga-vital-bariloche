@@ -71,7 +71,7 @@ export default function Hero() {
         >
           <Image
             src="/hero-yoga-bariloche.jpg"
-            alt="Clase de Yoga Vital en Bariloche al amanecer sobre el lago Nahuel Huapi"
+            alt="Clase de Ayur Yoga Vital en Bariloche al amanecer sobre el lago Nahuel Huapi"
             fill
             priority
             quality={88}
@@ -119,22 +119,22 @@ export default function Hero() {
         >
           <div className="inline-flex items-center gap-2 rounded-full border border-sand-50/25 bg-moss-800/30 px-4 py-2 text-[10px] uppercase tracking-[0.32em] text-sand-50/95 backdrop-blur-md">
             <MapPin size={12} />
-            <span>Yoga Vital · {site.city}</span>
+            <span>Ayur Yoga Vital · {site.city}</span>
           </div>
 
           <h1 className="mt-6 font-display text-[clamp(2.6rem,7.5vw,6rem)] leading-[0.92] tracking-tight text-sand-50">
             <RevealLine delay={0.45}>Respirar.</RevealLine>{" "}
             <RevealLine delay={0.7}>
               <span className="italic font-light text-sand-100/95">
-                Habitar el cuerpo.
+                Habitar el Ser.
               </span>
             </RevealLine>
             <br />
             <RevealLine delay={0.95}>Volver a casa.</RevealLine>
             <span className="sr-only">
               {" "}
-              — Yoga Vital en San Carlos de Bariloche con Rashi: clases de yoga
-              y yoga terapéutico.
+              — Ayur Yoga Vital en San Carlos de Bariloche con Rashi: clases de
+              yoga y yoga terapéutico.
             </span>
           </h1>
 
@@ -144,9 +144,11 @@ export default function Hero() {
             transition={{ delay: 1.15, duration: 0.9 }}
             className="mt-7 max-w-xl text-base leading-relaxed text-sand-50/90 md:text-lg"
           >
-            Clases de Yoga Vital en San Carlos de Bariloche con {site.teacher},
-            al pie del Nahuel Huapi. Una práctica terapéutica que une el yoga
-            clásico con el Ayurveda, adaptada a tu cuerpo de hoy.
+            Formaciones y Clases de Ayur Yoga Vital en San Carlos de Bariloche
+            al pie del Nahuel Huapi. Una práctica terapéutica que une las
+            filosofías de las tradiciones orientales clásicas y la
+            neurociencia actual, adaptada a las necesidades de la vida
+            moderna.
           </motion.p>
 
           <motion.div

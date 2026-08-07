@@ -17,7 +17,7 @@ export default function Footer() {
           <p className="uppercase tracking-[0.3em] text-violet-300 text-[10px] mb-2">
             Mapa del sitio
           </p>
-          <a href="#yoga-vital" className="block hover:text-sand-50">Yoga Vital</a>
+          <a href="#yoga-vital" className="block hover:text-sand-50">Ayur Yoga Vital</a>
           <a href="#rashi" className="block hover:text-sand-50">Rashi</a>
           <a href="#clases" className="block hover:text-sand-50">Clases</a>
           <a href="#horarios" className="block hover:text-sand-50">Horarios</a>

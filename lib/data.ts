@@ -1,8 +1,11 @@
-// Datos centralizados de Yoga Vital Bariloche con Rashi.
+// Datos centralizados de Ayur Yoga Vital Bariloche con Rashi.
 // Editá este archivo y se actualiza toda la landing.
 
 export const site = {
-  name: "Yoga Vital Bariloche",
+  name: "Ayur Yoga Vital Bariloche",
+  // Nombre corto que se muestra únicamente junto al logo del header.
+  // El resto del sitio (footer, SEO, JSON-LD) sigue usando `name`.
+  headerName: "Yoga en Bariloche",
   teacher: "Rashi",
   teacherFullName: "Rashi Natha (Ricardo Alzamendi)",
   tagline: "Yoga terapéutico al pie de los Andes",
@@ -46,7 +49,7 @@ export type ClassFeature = {
 export const classFeatures: ClassFeature[] = [
   {
     id: "vital",
-    title: "Yoga Vital",
+    title: "Ayur Yoga Vital",
     subtitle: "La práctica madre",
     description:
       "Asanas suaves, respiración consciente y relajación. Adaptamos cada postura con cinturones, bloques y almohadones. Tu cuerpo manda.",
@@ -57,10 +60,10 @@ export const classFeatures: ClassFeature[] = [
   },
   {
     id: "terapeutico",
-    title: "Yoga Terapéutico",
-    subtitle: "Cuerpo que necesita escucha",
+    title: "Ayur Yoga Terapéutico",
+    subtitle: "Tu cuerpo necesita ser escuchado",
     description:
-      "Rutinas específicas para columna, articulaciones, hipertensión, estrés o post-rehabilitación. Trabajo individualizado dentro del grupo.",
+      "Rutinas específicas para ansiedad, ataques de pánico, miedo, depresión, estrés crónico, insomnio, etc. Patologías de columna y articulaciones en general, hernias de disco, escoliosis, lordosis, artrosis, artritis, tendinitis, etc. Problemas digestivos, estreñimiento, constipación, hígado graso, etc. Abordaje individual y grupal.",
     intensity: 1,
     duration: "75 min",
     forWho: "Recuperación · adultos mayores",
@@ -68,43 +71,43 @@ export const classFeatures: ClassFeature[] = [
   },
   {
     id: "uccara",
-    title: "Uccara® · Vital Energético",
-    subtitle: "Despertar la energía latente",
+    title: "Uccara® · Ayur Yoga para Adolescentes",
+    subtitle: "El despertar del cuerpo energético y el manejo de las emociones",
     description:
-      "Técnica de movilización energética propia de la escuela. Movimientos rítmicos, sonido y respiración para despejar y vitalizar.",
+      "Metodología de meditación en movimiento. Práctica que permite una potente movilización energética a través de movimientos rítmicos, fórmulas de sonidos \"mantras\" y la respiración. Revitaliza el cuerpo físico y energético y genera una mente despierta y calma.",
     intensity: 3,
     duration: "60 min",
-    forWho: "Práctica activa",
+    forWho: "Adolescentes",
     icon: "sun",
   },
   {
     id: "meditacion",
-    title: "Meditación y Gongs",
-    subtitle: "Bajar el ruido",
+    title: "Meditación con Sonidos Soul Healing",
+    subtitle: "Calmar el ruido mental",
     description:
-      "Práctica de meditación guiada que cierra con baño sonoro de gongs y cuencos. Sales como si hubieras dormido un día entero.",
+      "Práctica de meditación guiada con concierto sonoro de gongs, cuencos, tambor chamánico, didgeridoo e instrumentos ancestrales. 1 hora de práctica equivale a 4 horas de sueño profundo. Ideal para disminuir el estrés crónico y la ansiedad.",
     intensity: 1,
     duration: "60 min",
     forWho: "Todos los niveles",
     icon: "moon",
   },
   {
-    id: "embarazo",
-    title: "Yoga en el Embarazo",
-    subtitle: "Acompañar el proceso",
+    id: "ayur-meditacion",
+    title: "Ayur Yoga y la Meditación",
+    subtitle: "Un tónico para el alma",
     description:
-      "Posturas, respiración y meditación adaptadas a cada trimestre. Prepara cuerpo y mente para el parto consciente.",
+      "Prácticas de iniciación en el arte de la meditación. Objetivo: aprender a enfocar y concentrar la mente. Reconocer los estados de conciencia y sus beneficios para la salud física, mental y emocional.",
     intensity: 1,
     duration: "60 min",
-    forWho: "Embarazo desde la semana 12",
+    forWho: "Todos los niveles",
     icon: "wave",
   },
   {
     id: "adultos",
-    title: "Yoga para Adultos Mayores",
+    title: "Ayur Yoga para Adultos Mayores",
     subtitle: "Movilidad y autonomía",
     description:
-      "Práctica con silla y de pie. Movilidad articular, equilibrio, memoria corporal y respiración. Sin acrobacias.",
+      "Prácticas terapéuticas específicas para mejorar el tono muscular, la movilidad articular, el equilibrio, la memoria, la coordinación y la capacidad de disfrutar la vida.",
     intensity: 1,
     duration: "60 min",
     forWho: "Desde los 60",
@@ -121,17 +124,21 @@ export type ScheduleSlot = {
   spotsLeft: number;
 };
 
+// Nota: spotsLeft ya no se muestra en pantalla (se sacó el contador de lugares
+// disponibles de la UI). Se mantiene solo como bandera interna de disponibilidad.
 export const schedule: ScheduleSlot[] = [
-  { day: "Lun", start: "14:00", end: "15:00", classId: "vital", groupName: "Grupo Mediodía", spotsLeft: 5 },
-  { day: "Lun", start: "16:30", end: "17:30", classId: "vital", groupName: "Grupo Tarde", spotsLeft: 4 },
-  { day: "Mar", start: "09:30", end: "10:30", classId: "vital", groupName: "Grupo Mañana", spotsLeft: 6 },
-  { day: "Mar", start: "19:00", end: "20:00", classId: "vital", groupName: "Grupo Noche", spotsLeft: 3 },
-  { day: "Mar", start: "20:30", end: "21:30", classId: "vital", groupName: "Grupo Noche II", spotsLeft: 4 },
-  { day: "Mié", start: "14:00", end: "15:00", classId: "vital", groupName: "Grupo Mediodía", spotsLeft: 5 },
-  { day: "Mié", start: "16:30", end: "17:30", classId: "vital", groupName: "Grupo Tarde", spotsLeft: 2 },
-  { day: "Jue", start: "19:00", end: "20:00", classId: "vital", groupName: "Grupo Noche", spotsLeft: 4 },
-  { day: "Jue", start: "20:30", end: "21:30", classId: "vital", groupName: "Grupo Noche II", spotsLeft: 5 },
-  { day: "Vie", start: "09:30", end: "10:30", classId: "vital", groupName: "Grupo Mañana", spotsLeft: 6 },
+  { day: "Lun", start: "14:15", end: "15:15", classId: "vital", groupName: "Grupo Mediodía", spotsLeft: 5 },
+  { day: "Mié", start: "14:15", end: "15:15", classId: "vital", groupName: "Grupo Mediodía", spotsLeft: 5 },
+  { day: "Lun", start: "16:30", end: "17:30", classId: "vital", groupName: "Grupo Tarde", spotsLeft: 5 },
+  { day: "Mié", start: "16:30", end: "17:30", classId: "vital", groupName: "Grupo Tarde", spotsLeft: 5 },
+  { day: "Mar", start: "09:30", end: "10:30", classId: "vital", groupName: "Grupo Mañana", spotsLeft: 5 },
+  { day: "Vie", start: "09:30", end: "10:30", classId: "vital", groupName: "Grupo Mañana", spotsLeft: 5 },
+  { day: "Mar", start: "11:00", end: "12:00", classId: "vital", groupName: "Grupo Media Mañana", spotsLeft: 5 },
+  { day: "Vie", start: "11:00", end: "12:00", classId: "vital", groupName: "Grupo Media Mañana", spotsLeft: 5 },
+  { day: "Mar", start: "18:00", end: "19:00", classId: "vital", groupName: "Grupo Noche", spotsLeft: 5 },
+  { day: "Jue", start: "18:00", end: "19:00", classId: "vital", groupName: "Grupo Noche", spotsLeft: 5 },
+  { day: "Mar", start: "19:30", end: "20:30", classId: "vital", groupName: "Grupo Noche II", spotsLeft: 5 },
+  { day: "Jue", start: "19:30", end: "20:30", classId: "vital", groupName: "Grupo Noche II", spotsLeft: 5 },
 ];
 
 export const days: ScheduleSlot["day"][] = ["Lun", "Mar", "Mié", "Jue", "Vie"];
@@ -144,11 +151,11 @@ export type Faq = { q: string; a: string };
 export const faqs: Faq[] = [
   {
     q: "¿Dónde puedo hacer yoga en Bariloche?",
-    a: "En Yoga Vital Bariloche, en pleno centro de San Carlos de Bariloche (Av. San Martín 586, 1° B), con Rashi. Tenemos clases de lunes a viernes en distintos horarios de mañana, mediodía, tarde y noche.",
+    a: "En Ayur Yoga Vital Bariloche, en pleno centro de San Carlos de Bariloche (Av. San Martín 586, 1° B), con Rashi. Tenemos clases de lunes a viernes en distintos horarios de mañana, mediodía, tarde y noche.",
   },
   {
-    q: "¿Qué es el Yoga Vital?",
-    a: "Yoga Vital es una práctica terapéutica que une el yoga clásico con el Ayurveda. En lugar de forzar el cuerpo a la postura, adaptamos la postura a tu cuerpo con cinturones, bloques y almohadones. Es ideal para todos los niveles.",
+    q: "¿Qué es el Ayur Yoga Vital?",
+    a: "Ayur Yoga Vital es una práctica terapéutica que une el yoga clásico con el Ayurveda. En lugar de forzar el cuerpo a la postura, adaptamos la postura a tu cuerpo con cinturones, bloques y almohadones. Es ideal para todos los niveles.",
   },
   {
     q: "¿Necesito experiencia previa para empezar?",
@@ -172,62 +179,56 @@ export type Course = {
   id: string;
   title: string;
   subtitle: string;
-  duration: string;
   format: string;
   startDate: string;
   description: string;
   highlights: string[];
-  level: "Instructorado" | "Profesorado" | "Especialización";
+  level: "Profesorado I" | "Profesorado II" | "Especialización";
 };
 
 export const courses: Course[] = [
   {
     id: "instructorado",
-    title: "Instructorado de Yoga Vital",
-    subtitle: "Primer paso para dar clase",
-    duration: "1 año · 250 hs",
-    format: "Presencial · Sábados",
-    startDate: "Inicio: 8 de agosto de 2026",
-    level: "Instructorado",
+    title: "Profesorado de Ayur Yoga Vital",
+    subtitle: "Primer paso para convertirte en un profesional",
+    format: "Presencial y online",
+    startDate: "Inicio: marzo y septiembre",
+    level: "Profesorado I",
     description:
-      "Formación completa para enseñar Yoga Vital. Anatomía aplicada, técnica de asanas, pranayama, didáctica y prácticas docentes supervisadas.",
+      "Formación completa para ser profesor de Ayur Yoga Vital. Filosofía e historia yóguica. Abordaje completo de las metodologías para trabajar el cuerpo físico, energético, emocional y mental-espiritual. Anatomía física aplicada. Kriyas; namaskares; la ciencia de las posturas \"asanas\"; swara, las respiraciones conscientes; el sonido sagrado de los mantras; pranayamas, el arte de mover la energía vital; relajaciones; meditaciones y los estados de consciencia. Clases presenciales y online, prácticas docentes supervisadas.",
     highlights: [
-      "Certificación reconocida por la Unión Argentina de Yoga",
-      "Prácticas docentes desde el mes 6",
+      "Certificaciones nacionales e internacionales otorgadas por la FYRA (Federación de Yoga de la República Argentina) y la UIDYV (Unión Internacional de Docentes de Yoga Vital)",
+      "Prácticas semanales con acompañamiento personalizado",
       "Material de estudio incluido",
-      "Becas parciales disponibles",
     ],
   },
   {
     id: "profesorado",
-    title: "Profesorado Ayur Yoga Terapéutico",
-    subtitle: "Segundo nivel · Orientación clínica",
-    duration: "2 años · 500 hs",
-    format: "Híbrido · Encuentros mensuales",
-    startDate: "Inicio: marzo 2027",
-    level: "Profesorado",
+    title: "Profesorado Ayur Yoga Vital Superior Terapéutico",
+    subtitle: "Nivel de aplicación yóguica en patologías y trastornos psicofísicos",
+    format: "Presencial y online",
+    startDate: "Inicio: marzo y septiembre",
+    level: "Profesorado II",
     description:
-      "Para quienes ya tienen instructorado. Enfoque terapéutico: columna, articulaciones, hipertensión, embarazo, salud mental. Trabajo con casos reales.",
+      "Enfoque terapéutico: abordaje de las diferentes patologías de los sistemas del cuerpo y de la mente. Abordaje del estrés, depresión, ataques de pánico, miedo, fobias, etc. Patologías del sistema nervioso, sistema articular y óseo, sistema digestivo, sistema circulatorio, sistema endocrino, sistema linfático y reproductivo.",
     highlights: [
-      "Diploma internacional Ayur Yoga Vital",
-      "Trabajo final con casos clínicos",
-      "Pasantía en el centro Bariloche",
-      "Ayurveda aplicada al yoga",
+      "Diplomaturas nacionales e internacionales",
+      "Trabajo final con casos clínicos reales",
+      "Prácticas presenciales en el centro Bariloche",
     ],
   },
   {
-    id: "especializacion-embarazo",
-    title: "Especialización en Yoga para el Embarazo",
-    subtitle: "Para instructorxs ya formadxs",
-    duration: "4 meses · 80 hs",
-    format: "Intensivo · Fines de semana",
-    startDate: "Próxima cohorte: septiembre 2026",
+    id: "especializacion-etapas",
+    title: "Especialidades para cada Etapa de la Vida",
+    subtitle: "Para profesorxs ya formadxs",
+    format: "Presencial y online",
+    startDate: "Inicio: marzo y septiembre",
     level: "Especialización",
     description:
-      "Profundización en la fisiología del embarazo, adaptación de prácticas por trimestre, preparación para el parto y posparto.",
+      "Formación en Ayur Yoga Vital en el embarazo, parto y posparto; en niños; en adolescentes; en la tercera edad. Ayur Yoga Vital en el deporte; con elementos de ayuda; para el manejo de las emociones, etc.",
     highlights: [
       "Cupo limitado a 15 personas",
-      "Materno-puericultura aplicada",
+      "Elegís la etapa o el enfoque que más te interesa",
       "Casos y observación de clases",
     ],
   },
@@ -237,52 +238,68 @@ export type Workshop = {
   id: string;
   title: string;
   recurrence: string;
-  nextDate: string;
+  day: string;
+  sessionType: string;
+  modality: string;
   duration: string;
   description: string;
-  price: string;
 };
 
 export const workshops: Workshop[] = [
   {
     id: "respiracion-vital",
-    title: "Respiración Vital · Pranayama",
+    title: "Respiración Vital y Pranayama",
     recurrence: "Mensual · Primer sábado",
-    nextDate: "Sábado 6 de junio · 10:00 hs",
+    day: "Sábado",
+    sessionType: "Teórico-práctico",
+    modality: "Presencial y online",
     duration: "2 hs",
     description:
-      "Las cuatro respiraciones esenciales del yoga. Bandhas, kumbhakas y aplicación a la vida cotidiana.",
-    price: "$ 18.000",
+      "Aprendé a usar tu propia energía vital (prana) para mejorar tu salud y aumentar tu vitalidad.",
   },
   {
-    id: "mandalas",
-    title: "Mandalas y Geometría Sagrada",
-    recurrence: "Mensual · Tercer domingo",
-    nextDate: "Domingo 21 de junio · 15:00 hs",
-    duration: "3 hs",
+    id: "emociones",
+    title: "Las Emociones Tienen un Mensaje para Ti",
+    recurrence: "Mensual · Segundo sábado",
+    day: "Sábado",
+    sessionType: "Teórico-práctico",
+    modality: "Presencial y online",
+    duration: "2 hs",
     description:
-      "Práctica meditativa de creación de mandalas con tinta y pigmentos naturales. Materiales incluidos.",
-    price: "$ 22.000",
+      "Tres módulos: identificá de manera fácil cuáles son los patrones emocionales activos en vos. Aprendé cómo desactivar los hábitos emocionales.",
   },
   {
     id: "chakras",
-    title: "Ciclo Diksha · Los 7 Chakras",
-    recurrence: "Cada 6 semanas · Un chakra por encuentro",
-    nextDate: "Sábado 13 de junio · Anahata (corazón)",
+    title: "Ayur Yoga Diksha · Ciclo Iniciático en los 7 Chakras",
+    recurrence: "Mensual · Primer domingo · un chakra por encuentro",
+    day: "Domingo",
+    sessionType: "Teórico-práctico",
+    modality: "Presencial y online",
     duration: "4 hs",
     description:
-      "Ciclo de siete encuentros para recorrer cada chakra desde la teoría, la práctica y el sonido.",
-    price: "$ 28.000 por encuentro",
+      "Ciclo de ocho encuentros donde vas a aprender prácticas avanzadas para desarrollar tus capacidades latentes (\"siddhis\") a través de una iniciación símil a las técnicas de reiki.",
   },
   {
-    id: "reiki",
-    title: "Iniciación a Reiki Nivel I",
-    recurrence: "Cada dos meses",
-    nextDate: "Sábado 11 y domingo 12 de julio",
-    duration: "Fin de semana intensivo",
+    id: "cuencos",
+    title: "Taller de Cuencos Tibetanos y Cuarzo",
+    recurrence: "Mensual · Segundo domingo",
+    day: "Domingo",
+    sessionType: "Teórico-práctico",
+    modality: "Presencial y online",
+    duration: "4 hs",
     description:
-      "Iniciación tradicional, historia, prácticas de autotratamiento y tratamiento a otrxs.",
-    price: "$ 65.000",
+      "Iniciate en el mágico mundo de los cuencos tibetanos y de cuarzo. Aprendé técnicas para tocarlos adecuadamente, los diferentes metales y sus usos terapéuticos, tratamientos de sanación y armonización, y el simbolismo oculto de cada uno de los toques.",
+  },
+  {
+    id: "nutricion",
+    title: "Encuentros de Nutrición",
+    recurrence: "Mensual",
+    day: "[Definir día]",
+    sessionType: "[Definir tipo]",
+    modality: "[Definir modalidad]",
+    duration: "[Definir duración]",
+    description:
+      "Encuentro mensual sobre nutrición consciente y hábitos alimentarios saludables. [Completar descripción — falta info de Rashi]",
   },
 ];
 
@@ -355,44 +372,43 @@ export const events: Event[] = [
 
 export const aboutRashi = {
   name: "Rashi",
-  fullName: "Ricardo Alzamendi · Rashi Natha",
-  role: "Coordinador regional Bariloche · Yoga Vital",
+  fullName: "Ricardo Alzamendi · Rashi Nath",
+  role: "Coordinador regional Bariloche · Ayur Yoga Vital",
   bio: [
-    "Rashi se formó como Profesor de Ayur Yoga Vital con Jorge Bidondo (Dev Hansa Natha) y lleva más de quince años dando clase en Bariloche.",
-    "Su mirada es terapéutica: trabaja con personas que llegan con dolor de espalda, ansiedad, hipertensión, embarazo o simplemente con ganas de habitar el cuerpo de otra forma.",
-    "Coordina la sede Bariloche de la Escuela Ayur Yoga Vital, dicta el instructorado, profesorado y las especializaciones, y guía baños de gong frente al lago Nahuel Huapi.",
+    "Mi nombre es Ricardo Alzamendi, me conocen en el ámbito espiritual como Rashi, que es mi nombre espiritual dentro de la tradición yóguica a la que pertenezco. Me formé como Profesor Superior Terapéutico en la Escuela Ayur Yoga Vital International School. Soy discípulo directo del Maha Yogacharya Shri Dev Hansa Nath, Gran Maestro de Yoga Jorge Bidondo. Me conocen en el ámbito yóguico por compartir lo que tanto amo, brindar disertaciones, formaciones y clases en diferentes partes del mundo.",
+    "Actualmente, y desde hace más de 15 años, coordino la Sede Bariloche de la Escuela Ayur Yoga Vital International School, donde se dictan diversas formaciones, como el Instructorado de Ayur Yoga, Profesorado de Ayur Yoga y especializaciones. Entre ellos, cursos, talleres y clases de meditación, relajación, respiración, masajes, reiki, reflexología, etc.",
   ],
   credentials: [
-    "Profesor de Ayur Yoga Vital (Escuela Jorge Bidondo)",
-    "Maestro de Reiki tradicional",
-    "Operador en sonoterapia con gongs y cuencos",
-    "Más de 15 años de práctica docente continua",
+    "Formador y Profesor de Ayur Yoga Vital International School",
+    "Reflexólogo Holístico, Reikista y Masajista profesional",
+    "Facilitador de Sound Healing · Terapias de sonido",
+    "Más de 20 años brindando formaciones y clases de manera continua",
   ],
 };
 
 export const yogaVitalPhilosophy = {
   whatIs:
-    "Yoga Vital es un sistema desarrollado en Argentina por Jorge Bidondo que fusiona el yoga clásico con los principios del Ayurveda. La práctica se adapta a la persona, no la persona a la práctica.",
+    "Ayur Yoga o Yoga Vital es un Sistema Vivo compuesto por diferentes metodologías y técnicas que permiten un abordaje completo del Ser, accionando de manera integral el cuerpo físico, emocional, mental y espiritual. Desarrollado por el Maha Yogacharya Sri Dev Hansa Nath, Gran Maestro Jorge Bidondo, de la tradición yoguica Natha Siddhas. El objetivo de toda la enseñanza es hacer consciente nuestra verdadera naturaleza esencial. La práctica tiene la característica que se adapta al alumnado, y no al revés, donde cada persona avanza de acuerdo a su búsqueda, sus posibilidades y necesidades personales.",
   pillars: [
     {
-      title: "Adaptación, no exigencia",
+      title: "Mirada Terapéutica",
       body:
-        "Usamos cinturones, bloques, almohadones y sillas. Cada postura se ajusta a tu cuerpo de hoy. No hay acrobacia que justifique el dolor.",
+        "Clases para todo público, adaptación personalizada para practicantes con patologías y trastornos del cuerpo físico, aspectos emocionales y desequilibrios mentales. Que la práctica consciente sea tu camino para reequilibrarte y desarrollar la mejor versión de ti.",
     },
     {
-      title: "Mirada terapéutica",
+      title: "Adaptación y Mejora Constante",
       body:
-        "Trabajamos sobre columna, articulaciones, respiración, sistema nervioso e hipertensión. El yoga como medicina preventiva, no como deporte.",
+        "Avanzar puede ser tu desafío. Disfrutar de tu práctica también. Las clases siguen objetivos puntuales de mejora continua. Utilizamos elementos de ayuda: cinturones, bloques, esferobalones, bolster, sillas, etc. Cada postura \"asana\" es un medio para llegar a la meta; despertar tu poder interior garantiza que todos los beneficios se manifiesten plenamente.",
     },
     {
-      title: "Cuatro funciones vitales",
+      title: "Hacer consciente lo Inconsciente",
       body:
-        "Respiración consciente, movimiento corporal, relajación profunda y pensamiento positivo. Las cuatro se entrenan en cada clase.",
+        "Tú eres unic@ y tienes el poder de crear tu propia realidad. En nuestra visión no existe la palabra imposible. Te compartimos las herramientas y estrategias para hacer posible todo lo que te propongas.",
     },
     {
-      title: "Linaje Natha Siddha",
+      title: "Linaje: El Hilo Dorado de la Enseñanza Sagrada",
       body:
-        "La escuela bebe de la tradición Natha. Una práctica de raíz, sin esoterismo de marketing, con maestros formados durante décadas.",
+        "Prácticas de sabiduría, con orígenes milenarios que se mantienen vigentes a través de la transmisión viva de maestros y discípulos, docentes y alumnos. Y hoy tú también eres parte de este camino de autorrealización. Sé parte de esta gran familia espiritual.",
     },
   ],
 };
