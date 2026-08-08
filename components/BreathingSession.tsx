@@ -14,6 +14,10 @@ import { buildWhatsappLink, generalMessage } from "@/lib/whatsapp";
 const INVITE_SEEN_KEY = "ayv:breathing-invite-seen";
 const IDLE_MS = 45_000;
 const SCROLL_DEPTH = 0.5;
+/** Permanencia mínima antes de poder invitar: sin esto, quien entra con la
+ *  página ya scrolleada vería la invitación al instante, que es justo el
+ *  patrón de "interstitial de entrada" que Google penaliza en mobile. */
+const MIN_DWELL_MS = 20_000;
 
 type Status = "running" | "done";
 
@@ -57,7 +61,9 @@ export default function BreathingSession() {
     }
 
     let idleTimer: ReturnType<typeof setTimeout>;
+    let dwellTimer: ReturnType<typeof setTimeout>;
     let done = false;
+    let dwellOk = false;
 
     const isTyping = () => {
       const el = document.activeElement;
@@ -71,16 +77,20 @@ export default function BreathingSession() {
       );
     };
 
+    const deepEnough = () => {
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      return max > 0 && window.scrollY / max > SCROLL_DEPTH;
+    };
+
     const trigger = () => {
-      if (done || isTyping()) return;
+      if (done || !dwellOk || isTyping()) return;
       done = true;
       setInvite(true);
       cleanup();
     };
 
     const onScroll = () => {
-      const max = document.body.scrollHeight - window.innerHeight;
-      if (max > 0 && window.scrollY / max > SCROLL_DEPTH) trigger();
+      if (deepEnough()) trigger();
       resetIdle();
     };
 
@@ -91,10 +101,19 @@ export default function BreathingSession() {
 
     const cleanup = () => {
       clearTimeout(idleTimer);
+      clearTimeout(dwellTimer);
       window.removeEventListener("scroll", onScroll);
       window.removeEventListener("pointermove", resetIdle);
       window.removeEventListener("keydown", resetIdle);
     };
+
+    dwellTimer = setTimeout(() => {
+      dwellOk = true;
+      // Se puede llegar con la página ya scrolleada (restauración del navegador
+      // o link con #ancla). En ese caso no llega ningún evento de scroll, así
+      // que hay que evaluar la profundidad también acá.
+      if (deepEnough()) trigger();
+    }, MIN_DWELL_MS);
 
     window.addEventListener("scroll", onScroll, { passive: true });
     window.addEventListener("pointermove", resetIdle, { passive: true });
@@ -250,60 +269,56 @@ function BreathingOverlay({ onClose }: { onClose: () => void }) {
           type="button"
           onClick={onClose}
           aria-label="Cerrar la práctica"
-          className="absolute -top-4 right-0 rounded-full p-2 text-violet-800/50 transition-colors hover:text-violet-800"
+          className="fixed right-5 top-5 rounded-full p-2 text-violet-800/50 transition-colors hover:bg-violet-800/5 hover:text-violet-800"
         >
           <X size={22} />
         </button>
 
         {/* Anillos concéntricos: mismo lenguaje visual que el BreathingCircle
-            decorativo de la sección "La práctica", pero centrados y guiando. */}
-        <div className="relative mt-6 flex h-64 w-64 items-center justify-center sm:h-72 sm:w-72">
+            decorativo de la sección "La práctica", pero centrados y guiando.
+            Todos absolutos con `inset-*`: si alguno queda en el flujo, el flex
+            lo trata como item, lo aplasta a un óvalo y lo corre de eje. */}
+        <div className="relative mt-6 h-64 w-64 sm:h-72 sm:w-72">
           <Ring
-            className="h-64 w-64 border border-moss-200 sm:h-72 sm:w-72"
+            className="absolute inset-0 border border-moss-200"
             scale={phase.scale}
             ms={phase.ms}
             reduced={reduced}
           />
           <Ring
-            className="absolute h-48 w-48 border border-cedar-400/50 sm:h-56 sm:w-56"
+            className="absolute inset-8 border border-cedar-400/50"
             scale={phase.scale}
             ms={phase.ms}
             reduced={reduced}
             delay={0.08}
           />
           <Ring
-            className="absolute h-32 w-32 bg-moss-600/20 sm:h-36 sm:w-36"
+            className="absolute inset-16 bg-moss-600/20"
             scale={phase.scale}
             ms={phase.ms}
             reduced={reduced}
             delay={0.16}
           />
 
-          <div className="relative z-10">
+          <div className="absolute inset-0 z-10 flex flex-col items-center justify-center px-6 text-center">
             {done ? (
               <p className="font-display text-2xl italic text-violet-800">
                 Volviste
               </p>
             ) : (
-              // Sin AnimatePresence a propósito: `mode="wait"` retiene el hijo
-              // saliente y dejaba la instrucción congelada en "Inhalá". El
-              // cambio de `key` remonta el nodo y dispara initial→animate, que
-              // es todo lo que necesitamos. La instrucción no puede fallar:
-              // es lo único que guía a quien tiene reducir-movimiento activado.
-              <motion.div
-                key={phase.key + cycle}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.4 }}
-                aria-live="polite"
-              >
+              // Texto sólido, sin animación de entrada. Un fade en cada cambio
+              // de fase hacía parpadear la instrucción y la dejaba semi-
+              // transparente buena parte del ciclo. Es lo único que guía a
+              // quien tiene reducir-movimiento activo: tiene que leerse
+              // siempre. El movimiento ya lo aportan los anillos.
+              <div aria-live="polite">
                 <p className="font-display text-3xl italic text-violet-800">
                   {phase.label}
                 </p>
-                <p className="mt-1 text-[13px] text-violet-800/60">
+                <p className="mt-1 text-[13px] text-violet-800/75">
                   {phase.hint}
                 </p>
-              </motion.div>
+              </div>
             )}
           </div>
         </div>
