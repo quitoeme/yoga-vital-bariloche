@@ -1,7 +1,9 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { Wind } from "lucide-react";
 import { yogaVitalPhilosophy } from "@/lib/data";
+import { openBreathing } from "@/lib/breathing";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -34,6 +36,17 @@ export default function AboutYogaVital() {
             <p className="mt-6 text-violet-800/80 text-lg leading-relaxed">
               {yogaVitalPhilosophy.whatIs}
             </p>
+
+            <button
+              type="button"
+              onClick={openBreathing}
+              data-cursor-label="respirar"
+              className="mt-8 inline-flex items-center gap-2 rounded-full border border-moss-400 px-5 py-2.5 text-sm font-medium text-violet-800 transition-colors duration-300 hover:border-moss-600 hover:bg-moss-600 hover:text-sand-50"
+            >
+              <Wind size={16} />
+              Respirá un minuto conmigo
+            </button>
+
             <BreathingCircle />
           </motion.div>
 
@@ -67,13 +80,19 @@ export default function AboutYogaVital() {
 
 function BreathingCircle() {
   return (
-    <div className="hidden lg:block mt-12 relative h-52">
-      <div className="absolute left-0 top-0 w-44 h-44 rounded-full border border-moss-200 animate-breathe" />
-      <div className="absolute left-6 top-6 w-32 h-32 rounded-full border border-cedar-400/50 animate-breathe [animation-delay:1s]" />
-      <div className="absolute left-12 top-12 w-20 h-20 rounded-full bg-moss-600/20 animate-breathe [animation-delay:2s]" />
+    <button
+      type="button"
+      onClick={openBreathing}
+      aria-label="Empezar la práctica guiada de respiración"
+      data-cursor-label="respirar"
+      className="group hidden lg:block mt-12 relative h-52 w-full text-left"
+    >
+      <div className="absolute left-0 top-0 w-44 h-44 rounded-full border border-moss-200 animate-breathe transition-colors group-hover:border-moss-400" />
+      <div className="absolute left-6 top-6 w-32 h-32 rounded-full border border-cedar-400/50 animate-breathe [animation-delay:1s] transition-colors group-hover:border-cedar-400" />
+      <div className="absolute left-12 top-12 w-20 h-20 rounded-full bg-moss-600/20 animate-breathe [animation-delay:2s] transition-colors group-hover:bg-moss-600/35" />
       <span className="absolute left-56 top-20 text-xs text-violet-500 italic font-display">
         Inhala. Exhala. Siente tu corazón.
       </span>
-    </div>
+    </button>
   );
 }

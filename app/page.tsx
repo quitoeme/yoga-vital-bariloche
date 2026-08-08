@@ -14,6 +14,7 @@ import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import CustomCursor from "@/components/CustomCursor";
+import BreathingSession from "@/components/BreathingSession";
 
 export default function Home() {
   return (
@@ -33,6 +34,7 @@ export default function Home() {
       <Contact />
       <Footer />
       <FloatingWhatsApp />
+      <BreathingSession />
       <CustomCursor />
     </main>
   );

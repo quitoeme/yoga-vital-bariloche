@@ -3,6 +3,7 @@ import { Inter, Fraunces } from "next/font/google";
 import "./globals.css";
 import { site } from "@/lib/data";
 import JsonLd from "@/components/JsonLd";
+import MotionProvider from "@/components/MotionProvider";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -91,7 +92,7 @@ export default function RootLayout({
   return (
     <html lang="es-AR" className={`${inter.variable} ${fraunces.variable}`}>
       <body className="bg-sand-50 text-slate-850 antialiased">
-        {children}
+        <MotionProvider>{children}</MotionProvider>
         <JsonLd />
       </body>
     </html>
