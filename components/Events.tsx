@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { Calendar, Sparkles, ArrowUpRight } from "lucide-react";
 import { events } from "@/lib/data";
 import { buildWhatsappLink, eventMessage } from "@/lib/whatsapp";
@@ -57,9 +58,16 @@ export default function Events() {
               >
               <Tilt max={6} className="group relative bg-sand-50 rounded-3xl overflow-hidden border border-moss-100 hover:shadow-2xl hover:shadow-moss-800/15 transition-shadow duration-500 flex flex-col h-full">
                 <div className="relative h-56 overflow-hidden">
-                  <div
-                    className="absolute inset-0 bg-cover bg-center group-hover:scale-110 transition-transform duration-700"
-                    style={{ backgroundImage: `url(${ev.cover})` }}
+                  {/* next/image y no un background-image de CSS: estas portadas
+                      son remotas y pesaban ~780 KB en total (el 88% del peso de
+                      imágenes de la página), sin optimizar ni diferir. Así se
+                      sirven en WebP/AVIF, al ancho justo y con lazy loading. */}
+                  <Image
+                    src={ev.cover}
+                    alt={ev.title}
+                    fill
+                    sizes="(min-width: 1024px) 25vw, (min-width: 768px) 50vw, 100vw"
+                    className="object-cover transition-transform duration-700 group-hover:scale-110"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-moss-800/80 via-moss-800/20 to-transparent" />
                   <div className="absolute top-4 left-4">
