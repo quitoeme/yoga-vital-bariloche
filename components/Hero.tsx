@@ -74,7 +74,10 @@ export default function Hero() {
             alt="Clase de Ayur Yoga Vital en Bariloche al amanecer sobre el lago Nahuel Huapi"
             fill
             priority
-            quality={88}
+            // 75 y no 88: a 1920px de ancho la diferencia son ~250 KB en el
+            // recurso que bloquea el LCP, y esta foto va debajo de un degradado
+            // oscuro, texto y desenfoques — la pérdida no se percibe.
+            quality={75}
             sizes="100vw"
             className="object-cover object-[70%_60%] md:object-[center_55%]"
           />
