@@ -9,9 +9,9 @@ export default function Contact() {
   return (
     <section
       id="contacto"
-      className="relative py-28 md:py-36 bg-moss-800 text-sand-50 overflow-hidden"
+      className="relative py-28 md:py-36 bg-violet-50 text-violet-800 overflow-hidden"
     >
-      <div className="absolute inset-0 breathe-bg opacity-30" aria-hidden />
+      <div className="absolute inset-0 breathe-bg opacity-40" aria-hidden />
 
       <div className="relative max-w-7xl mx-auto px-6">
         <div className="grid lg:grid-cols-12 gap-12 items-start">
@@ -22,16 +22,15 @@ export default function Contact() {
             transition={{ duration: 0.7 }}
             className="lg:col-span-7"
           >
-            <span className="section-eyebrow text-violet-200 before:bg-violet-300">
-              Encontranos
-            </span>
-            <h2 className="font-display text-4xl md:text-5xl lg:text-6xl mt-5 leading-[1.05]">
-              Te esperamos en{" "}
-              <span className="italic text-violet-300">Bariloche</span>
+            <span className="section-eyebrow">Encontranos</span>
+            <h2 className="font-display text-4xl md:text-5xl lg:text-6xl mt-5 leading-[1.05] text-violet-800">
+              Sos Bienvenid@ en{" "}
+              <span className="italic text-violet-500">Bariloche</span>
             </h2>
-            <p className="mt-6 text-sand-100/80 text-lg leading-relaxed max-w-xl">
-              El espacio está pensado para que llegues, dejes el mundo afuera y
-              te encuentres. Si es la primera vez, contanos y te orientamos.
+            <p className="mt-6 text-violet-800/70 text-lg leading-relaxed max-w-xl">
+              Nuestro centro está pensado para que llegues, dejes tus
+              preocupaciones afuera y te encuentres a ti mismo. Si es la
+              primera vez, contanos y te orientamos.
             </p>
 
             <div className="mt-10 grid sm:grid-cols-2 gap-3">
@@ -68,9 +67,9 @@ export default function Contact() {
             transition={{ duration: 1 }}
             className="lg:col-span-5"
           >
-            <div className="aspect-square rounded-3xl overflow-hidden border border-moss-400/30 relative">
+            <div className="aspect-square rounded-3xl overflow-hidden border border-moss-100 relative">
               <iframe
-                src="https://www.openstreetmap.org/export/embed.html?bbox=-71.318%2C-41.137%2C-71.290%2C-41.125&layer=mapnik&marker=-41.1335%2C-71.3103"
+                src="https://www.openstreetmap.org/export/embed.html?bbox=-71.332%2C-41.144%2C-71.304%2C-41.132&layer=mapnik&marker=-41.1378%2C-71.3180"
                 className="w-full h-full grayscale-[20%] contrast-110"
                 style={{ border: 0 }}
                 loading="lazy"
@@ -79,13 +78,13 @@ export default function Contact() {
               />
               <div className="absolute inset-0 pointer-events-none ring-1 ring-inset ring-cedar-400/30" />
             </div>
-            <div className="mt-4 flex items-center justify-between text-sm text-sand-100/70">
-              <span>Av. San Martín 586 · 1° B</span>
+            <div className="mt-4 flex items-center justify-between text-sm text-violet-800/60">
+              <span>Campichuelo 734 · PB A</span>
               <a
-                href="https://maps.google.com/?q=Av.+San+Martin+586,+San+Carlos+de+Bariloche"
+                href="https://maps.google.com/?q=Campichuelo+734,+San+Carlos+de+Bariloche"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-violet-300 hover:text-sand-100 underline underline-offset-2"
+                className="text-violet-500 hover:text-violet-700 underline underline-offset-2"
               >
                 Cómo llegar
               </a>
@@ -109,12 +108,12 @@ function ContactCard({
   href?: string;
 }) {
   const inside = (
-    <div className="bg-moss-600/40 hover:bg-moss-600/60 border border-moss-400/30 rounded-2xl p-5 transition-all duration-300 hover:border-cedar-400/60 group">
-      <div className="flex items-center gap-2 text-violet-300 mb-2">
+    <div className="bg-sand-50/80 hover:bg-sand-50 border border-moss-100 rounded-2xl p-5 transition-all duration-300 hover:border-cedar-400/60 group">
+      <div className="flex items-center gap-2 text-violet-500 mb-2">
         {icon}
         <span className="text-[10px] uppercase tracking-[0.3em]">{label}</span>
       </div>
-      <div className="text-sand-50 group-hover:text-sand-100 transition-colors">
+      <div className="text-violet-800 group-hover:text-violet-500 transition-colors">
         {value}
       </div>
     </div>

@@ -30,12 +30,15 @@ export default function Events() {
           <div className="max-w-2xl">
             <span className="section-eyebrow">Agenda especial</span>
             <h2 className="font-display text-4xl md:text-5xl lg:text-6xl text-violet-800 mt-5 leading-[1.05]">
-              Encuentros{" "}
-              <span className="italic text-violet-500">de fin de semana</span>
+              Encuentros de{" "}
+              <span className="italic text-violet-500">Revitalización</span> de
+              fin de semana
             </h2>
             <p className="mt-5 text-violet-800/70 text-lg leading-relaxed">
-              Baños de gong, lunas, retiros y círculos. Espacios breves para
-              soltar el ruido del mundo.
+              Retiros y círculos de sanación, meditaciones, mantras sagrados,
+              baños de gongs, rituales, alquimia, sabiduría femenina y
+              masculina. Tu espacio sagrado para liberar el estrés y regresar
+              a nuestro centro.
             </p>
           </div>
           <Sparkles className="hidden md:block text-cedar-400" size={48} />
@@ -43,7 +46,6 @@ export default function Events() {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
           {events.map((ev, i) => {
-            const pct = Math.round(((ev.totalSpots - ev.spots) / ev.totalSpots) * 100);
             return (
               <motion.div
                 key={ev.id}
@@ -84,27 +86,6 @@ export default function Events() {
                   <p className="mt-3 text-violet-800/70 text-[14px] leading-relaxed flex-grow">
                     {ev.description}
                   </p>
-
-                  <div className="mt-5">
-                    <div className="flex items-center justify-between text-[11px] text-violet-800/60 mb-1.5">
-                      <span>Cupos ocupados</span>
-                      <span>
-                        {ev.totalSpots - ev.spots}/{ev.totalSpots}
-                      </span>
-                    </div>
-                    <div className="h-1 bg-moss-100 rounded-full overflow-hidden">
-                      <div
-                        className={`h-full rounded-full transition-all duration-700 ${
-                          pct > 80
-                            ? "bg-cedar-500"
-                            : pct > 50
-                            ? "bg-cedar-400"
-                            : "bg-moss-400"
-                        }`}
-                        style={{ width: `${pct}%` }}
-                      />
-                    </div>
-                  </div>
 
                   <a
                     href={buildWhatsappLink(

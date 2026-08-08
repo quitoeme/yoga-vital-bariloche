@@ -14,25 +14,27 @@ export const site = {
   // URL pública del sitio (canonical, sitemap, OpenGraph). Cambiá esto si
   // conectás un dominio propio (ej. https://yogavitalbariloche.com).
   url: "https://rashi-theta.vercel.app",
-  address: "Av. San Martín 586, 1° B · San Carlos de Bariloche",
-  streetAddress: "Av. San Martín 586, 1° B",
+  address: "Campichuelo 734, Planta Baja A · San Carlos de Bariloche",
+  streetAddress: "Campichuelo 734, Planta Baja A",
   locality: "San Carlos de Bariloche",
   region: "Río Negro",
   postalCode: "8400",
   country: "AR",
-  // Coordenadas aprox. del centro de San Carlos de Bariloche
-  geo: { lat: -41.1334722, lng: -71.3102778 },
+  // Coordenadas de Campichuelo 734, San Carlos de Bariloche (geocodificado con
+  // Nominatim/OpenStreetMap).
+  geo: { lat: -41.1378407, lng: -71.3179502 },
   city: "San Carlos de Bariloche, Patagonia",
-  email: "bariloche@yogavital.com.ar",
+  email: "ayvisbariloche@gmail.com",
   whatsapp: "5492944796273", // formato internacional sin + ni espacios
   whatsappDisplay: "+54 9 294 479-6273",
   phoneE164: "+5492944796273",
-  instagram: "@yogavitalbariloche",
-  instagramUrl: "https://www.instagram.com/yogavitalbariloche",
+  instagram: "@yoguirashi",
+  instagramUrl: "https://www.instagram.com/yoguirashi",
   facebook: "Ayur.Yoga.Vital.Bariloche",
   facebookUrl: "https://www.facebook.com/Ayur.Yoga.Vital.Bariloche",
   founded: 2009,
-  lineage: "Escuela Ayur Yoga Vital · Fundada por Jorge Bidondo (Dev Hansa Natha)",
+  lineage:
+    "Escuela Ayur Yoga Vital International School · Coordinador Rashi Nath - Ricardo Alzamendi",
 };
 
 export type ClassFeature = {
@@ -50,9 +52,9 @@ export const classFeatures: ClassFeature[] = [
   {
     id: "vital",
     title: "Ayur Yoga Vital",
-    subtitle: "La práctica madre",
+    subtitle: "Despierta tu Potencial",
     description:
-      "Asanas suaves, respiración consciente y relajación. Adaptamos cada postura con cinturones, bloques y almohadones. Tu cuerpo manda.",
+      "Prácticas para el desarrollo de tu fuerza, flexibilidad y elongación: todo lo que tu cuerpo necesita. Prácticas especiales para desarrollar tu capacidad de adaptación, flexibilidad y fortaleza interior. El uso de elementos de ayuda te ayuda a ver un mundo de posibilidades.",
     intensity: 2,
     duration: "75 min",
     forWho: "Todos los niveles",
@@ -151,23 +153,23 @@ export type Faq = { q: string; a: string };
 export const faqs: Faq[] = [
   {
     q: "¿Dónde puedo hacer yoga en Bariloche?",
-    a: "En Ayur Yoga Vital Bariloche, en pleno centro de San Carlos de Bariloche (Av. San Martín 586, 1° B), con Rashi. Tenemos clases de lunes a viernes en distintos horarios de mañana, mediodía, tarde y noche.",
+    a: "En Ayur Yoga Vital Bariloche, en pleno centro de San Carlos de Bariloche (Campichuelo 734, Planta Baja A), con Rashi. Tenemos clases de lunes a viernes en distintos horarios de mañana, mediodía, tarde y noche.",
   },
   {
     q: "¿Qué es el Ayur Yoga Vital?",
-    a: "Ayur Yoga Vital es una práctica terapéutica que une el yoga clásico con el Ayurveda. En lugar de forzar el cuerpo a la postura, adaptamos la postura a tu cuerpo con cinturones, bloques y almohadones. Es ideal para todos los niveles.",
+    a: "Ayur Yoga Vital es un sistema compuesto por prácticas terapéuticas que manifiestan la esencia de la enseñanza yóguica milenaria, adaptada en sus formas a las necesidades del mundo globalizado. La práctica yóguica (sadhana) se revitaliza en Occidente a través de una sistematización terapéutica que tiene en cuenta las necesidades y posibilidades de cada practicante. Cada alumn@ realiza su práctica con la guía de un profesional. Comprender y respetar cuál es el ritmo adecuado para cada individuo es uno de nuestros grandes valores: inspiramos con el ejemplo, y la calidad amorosa de nuestros docentes nos respalda.",
   },
   {
     q: "¿Necesito experiencia previa para empezar?",
-    a: "No. Trabajamos en grupos chicos y cada persona avanza a su ritmo. Si nunca hiciste yoga, te acompañamos desde la primera clase. Podés venir a una clase suelta para probar antes de sumarte.",
+    a: "No. Cada persona realiza las dinámicas propuestas de acuerdo a su posibilidad y a su propio ritmo. Las propuestas son muy cuidadas y se adaptan a cada practicante. Si nunca tomaste una clase, te acompañamos, guiándote desde la primera clase. Podés venir a una clase libre para probar antes de sumarte.",
   },
   {
-    q: "¿Hacen yoga terapéutico?",
-    a: "Sí. Ofrecemos prácticas específicas para columna, articulaciones, estrés, hipertensión y post-rehabilitación, con un trabajo individualizado dentro del grupo. El yoga terapéutico es el corazón de la escuela.",
+    q: "¿Hacen Ayur yoga terapéutico?",
+    a: "Sí. Ofrecemos prácticas específicas para abordar cualquier problemática y patología del cuerpo y la mente. Somos especialistas en estrés crónico, ataques de pánico, fobias y miedos, y desequilibrios del sistema nervioso; problemas en la columna vertebral, articulaciones, sistema digestivo, etc. El abordaje terapéutico es uno de los pilares de nuestra escuela.",
   },
   {
     q: "¿Qué días y horarios hay clases de yoga?",
-    a: "Hay clases de lunes a viernes. Lunes y miércoles a las 14:00 y 16:30; martes y viernes a las 9:30; y martes y jueves a las 19:00 y 20:30. Cada clase dura aproximadamente 60 minutos.",
+    a: "Hay clases de lunes a viernes. Lunes y miércoles a las 14:15 y 16:30; martes y viernes a las 9:30 y 11:00; y martes y jueves a las 18:00 y 19:30. Cada clase dura aproximadamente 60 minutos.",
   },
   {
     q: "¿Cómo reservo una clase?",
@@ -220,16 +222,15 @@ export const courses: Course[] = [
   {
     id: "especializacion-etapas",
     title: "Especialidades para cada Etapa de la Vida",
-    subtitle: "Para profesorxs ya formadxs",
+    subtitle: "Para profesorxs formadxs",
     format: "Presencial y online",
     startDate: "Inicio: marzo y septiembre",
     level: "Especialización",
     description:
-      "Formación en Ayur Yoga Vital en el embarazo, parto y posparto; en niños; en adolescentes; en la tercera edad. Ayur Yoga Vital en el deporte; con elementos de ayuda; para el manejo de las emociones, etc.",
+      "Enfoque terapéutico aplicado desde la práctica a cada una de las necesidades de cada situación.",
     highlights: [
-      "Cupo limitado a 15 personas",
       "Elegís la etapa o el enfoque que más te interesa",
-      "Casos y observación de clases",
+      "Tu posibilidad de hacer lo que te apasiona lo encontrás aquí",
     ],
   },
 ];
@@ -290,81 +291,63 @@ export const workshops: Workshop[] = [
     description:
       "Iniciate en el mágico mundo de los cuencos tibetanos y de cuarzo. Aprendé técnicas para tocarlos adecuadamente, los diferentes metales y sus usos terapéuticos, tratamientos de sanación y armonización, y el simbolismo oculto de cada uno de los toques.",
   },
-  {
-    id: "nutricion",
-    title: "Encuentros de Nutrición",
-    recurrence: "Mensual",
-    day: "[Definir día]",
-    sessionType: "[Definir tipo]",
-    modality: "[Definir modalidad]",
-    duration: "[Definir duración]",
-    description:
-      "Encuentro mensual sobre nutrición consciente y hábitos alimentarios saludables. [Completar descripción — falta info de Rashi]",
-  },
 ];
 
 export type Event = {
   id: string;
   title: string;
+  // Patrón de recurrencia (ya no son fechas puntuales con cupo limitado).
   date: string;
   time: string;
   type: "Baño de Gong" | "Luna" | "Retiro" | "Encuentro";
   description: string;
-  spots: number;
-  totalSpots: number;
   cover: string;
 };
 
 export const events: Event[] = [
   {
-    id: "gong-luna-llena",
-    title: "Baño de Gong · Luna Llena de Sagitario",
-    date: "Sábado 30 de mayo",
-    time: "20:30 hs",
+    id: "gong-nidra",
+    title: "Baño de Gong y Nidra",
+    date: "2do domingo de cada mes",
+    time: "19 hs",
     type: "Baño de Gong",
     description:
-      "Una hora y media de inmersión sonora con gongs planetarios, cuencos tibetanos y voz. Llegás como llegues, salís otrx.",
-    spots: 4,
-    totalSpots: 25,
+      "Una hora y media de inmersión meditativa y sonora con gongs, cuencos tibetanos y mantras. Un viaje al mundo de las percepciones sutiles del ser.",
     cover:
       "https://images.unsplash.com/photo-1545389336-cf090694435e?auto=format&fit=crop&w=1200&q=80",
   },
   {
-    id: "gong-solsticio",
-    title: "Baño de Gong · Solsticio de Invierno",
-    date: "Sábado 21 de junio",
-    time: "19:00 hs",
-    type: "Baño de Gong",
+    id: "equinoccios-solsticios",
+    title: "Equinoccios y Solsticios · Días Mágicos",
+    date: "En cada equinoccio y solsticio",
+    time: "Fecha a confirmar",
+    type: "Encuentro",
     description:
-      "Cierre del ciclo solar. Práctica corta de yoga restaurativo y noventa minutos de gongs frente al lago.",
-    spots: 12,
-    totalSpots: 30,
+      "En cada solsticio y equinoccio se generan oportunidades para resetear nuestros sistemas. Práctica de Ayur Yoga a través de ceremonias ancestrales para cerrar ciclos y dar la bienvenida a lo nuevo, en un entorno natural mágico.",
+    // TODO(Rashi): pidió cambiar esta foto por una de personas meditando en
+    // la naturaleza — este es un placeholder, reemplazar cuando tengan una.
     cover:
-      "https://images.unsplash.com/photo-1502139214982-d0ad755818d8?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=1200&q=80",
   },
   {
-    id: "retiro-lago",
-    title: "Retiro de Fin de Semana · Lago Mascardi",
-    date: "Viernes 17 al domingo 19 de julio",
-    time: "Tres días completos",
+    id: "retiro-lago-steffen",
+    title: "Resets de Dos Días Completos · Retiro de Fin de Semana en Lago Steffen",
+    date: "Fin de semana (fecha a confirmar)",
+    time: "Dos días completos",
     type: "Retiro",
     description:
       "Cabañas frente al lago, prácticas matinales, caminatas, comida vegetariana de estación y silencio.",
-    spots: 6,
-    totalSpots: 18,
     cover:
       "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1200&q=80",
   },
   {
-    id: "luna-nueva-mujeres",
-    title: "Círculo de Mujeres · Luna Nueva",
-    date: "Domingo 14 de junio",
-    time: "17:00 hs",
+    id: "circulo-sabios",
+    title: "Círculo de Mujeres y Hombres Sabios",
+    date: "Lunas llenas y lunas nuevas",
+    time: "Fecha a confirmar",
     type: "Luna",
     description:
-      "Encuentro mensual de práctica, palabra y té. Coordina Rashi junto a Yamila (doula).",
-    spots: 8,
-    totalSpots: 16,
+      "Encuentro mensual de Satsang: compartir sabiduría, prácticas yóguicas, danza y masaje.",
     cover:
       "https://images.unsplash.com/photo-1499678329028-101435549a4e?auto=format&fit=crop&w=1200&q=80",
   },

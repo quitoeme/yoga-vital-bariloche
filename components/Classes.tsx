@@ -10,13 +10,13 @@ export default function Classes() {
   return (
     <section
       id="clases"
-      className="relative py-28 md:py-36 bg-moss-800 text-sand-50 overflow-hidden"
+      className="relative py-28 md:py-36 bg-moss-50 text-violet-800 overflow-hidden"
     >
       <div className="absolute inset-0 opacity-[0.05] pointer-events-none">
         <svg viewBox="0 0 100 100" className="w-full h-full" aria-hidden>
           <defs>
             <pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse">
-              <path d="M 10 0 L 0 0 0 10" fill="none" stroke="white" strokeWidth="0.2" />
+              <path d="M 10 0 L 0 0 0 10" fill="none" stroke="#3D4A2A" strokeWidth="0.2" />
             </pattern>
           </defs>
           <rect width="100" height="100" fill="url(#grid)" />
@@ -31,14 +31,12 @@ export default function Classes() {
           transition={{ duration: 0.7 }}
           className="max-w-3xl mb-16"
         >
-          <span className="section-eyebrow text-violet-200 before:bg-violet-300">
-            Las prácticas
-          </span>
-          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl mt-5 leading-[1.05]">
+          <span className="section-eyebrow">Las prácticas</span>
+          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl mt-5 leading-[1.05] text-violet-800">
             Muchos caminos,{" "}
-            <span className="italic text-violet-300">un solo objetivo: tu bienestar</span>
+            <span className="italic text-violet-500">un solo objetivo: tu bienestar</span>
           </h2>
-          <p className="mt-6 text-sand-100/80 text-lg leading-relaxed">
+          <p className="mt-6 text-violet-800/70 text-lg leading-relaxed">
             Cada clase tiene una tónica particular. Elegí la que más sientas
             que tu Ser esté necesitando hoy.
           </p>
@@ -54,7 +52,7 @@ export default function Classes() {
               transition={{ duration: 0.6, delay: i * 0.07 }}
               data-cursor-label={c.title.toLowerCase()}
             >
-              <Tilt max={6} className="group relative bg-moss-600/40 border border-moss-400/30 rounded-3xl p-7 hover:bg-moss-600/60 hover:border-cedar-400/60 transition-colors duration-500 overflow-hidden">
+              <Tilt max={6} className="group relative bg-sand-50/80 border border-moss-100 rounded-3xl p-7 hover:bg-sand-50 hover:border-cedar-400/60 transition-colors duration-500 overflow-hidden">
                 <div className="absolute -top-10 -right-10 w-40 h-40 rounded-full bg-cedar-500/10 blur-2xl group-hover:bg-cedar-400/25 transition-all duration-500" />
 
                 <div className="relative">
@@ -63,14 +61,14 @@ export default function Classes() {
                     <Intensity level={c.intensity} />
                   </div>
 
-                  <h3 className="font-display text-2xl text-sand-50">{c.title}</h3>
-                  <p className="text-violet-300 text-sm italic mb-4">{c.subtitle}</p>
+                  <h3 className="font-display text-2xl text-violet-800">{c.title}</h3>
+                  <p className="text-violet-500 text-sm italic mb-4">{c.subtitle}</p>
 
-                  <p className="text-sand-100/75 text-[15px] leading-relaxed">
+                  <p className="text-violet-800/70 text-[15px] leading-relaxed">
                     {c.description}
                   </p>
 
-                  <div className="mt-6 pt-5 border-t border-moss-400/30 flex items-center gap-5 text-xs text-sand-100/70">
+                  <div className="mt-6 pt-5 border-t border-moss-100 flex items-center gap-5 text-xs text-violet-800/60">
                     <span className="flex items-center gap-1.5">
                       <Clock size={13} /> {c.duration}
                     </span>

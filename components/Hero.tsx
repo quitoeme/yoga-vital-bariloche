@@ -170,7 +170,7 @@ export default function Hero() {
               <a
                 href="#yoga-vital"
                 data-cursor-label="explorar"
-                className="btn-ghost border-sand-50/50 text-sand-50 hover:bg-sand-50 hover:text-moss-800"
+                className="btn-ghost !border-sand-50/50 !text-sand-50 hover:!bg-sand-50 hover:!text-moss-800"
               >
                 Conocer la práctica
               </a>

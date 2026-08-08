@@ -14,7 +14,7 @@ const phrases = [
 
 export default function Marquee() {
   return (
-    <div className="relative bg-moss-800 text-sand-50 py-6 overflow-hidden border-y border-moss-600">
+    <div className="relative bg-moss-100 text-violet-800 py-6 overflow-hidden border-y border-moss-200">
       <div className="flex animate-marquee whitespace-nowrap gap-12">
         {[...phrases, ...phrases, ...phrases].map((p, i) => (
           <span
@@ -32,7 +32,7 @@ export default function Marquee() {
 
 function Dot() {
   return (
-    <svg viewBox="0 0 24 24" className="w-5 h-5 text-violet-300" aria-hidden>
+    <svg viewBox="0 0 24 24" className="w-5 h-5 text-violet-400" aria-hidden>
       <circle cx="12" cy="12" r="4" fill="currentColor" />
     </svg>
   );

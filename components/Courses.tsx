@@ -5,25 +5,36 @@ import { GraduationCap, Calendar, ArrowUpRight } from "lucide-react";
 import { courses } from "@/lib/data";
 import { buildWhatsappLink, courseMessage } from "@/lib/whatsapp";
 
+// Pseudo-random determinístico (mismo resultado en server y cliente) para que
+// la textura decorativa no dispare un hydration mismatch en React. Usa solo
+// operaciones enteras/bitwise (mulberry32): a diferencia de Math.sin, esas
+// están garantizadas bit-a-bit idénticas en cualquier motor JS.
+function seeded(n: number): number {
+  let t = (n + 0x6d2b79f5) | 0;
+  t = Math.imul(t ^ (t >>> 15), t | 1);
+  t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
+  return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+}
+
 export default function Courses() {
   return (
     <section
       id="cursos"
-      className="relative py-28 md:py-36 bg-cedar-700 text-sand-50 overflow-hidden"
+      className="relative py-28 md:py-36 bg-sand-100 text-violet-800 overflow-hidden"
     >
       {/* Textura */}
-      <div className="absolute inset-0 opacity-30 mix-blend-overlay pointer-events-none">
+      <div className="absolute inset-0 opacity-30 mix-blend-multiply pointer-events-none">
         <svg viewBox="0 0 800 600" preserveAspectRatio="none" className="w-full h-full" aria-hidden>
           {[...Array(60)].map((_, i) => (
             <line
               key={i}
-              x1={Math.random() * 800}
-              y1={Math.random() * 600}
-              x2={Math.random() * 800}
-              y2={Math.random() * 600}
-              stroke="#FBF7F0"
+              x1={seeded(i) * 800}
+              y1={seeded(i + 60) * 600}
+              x2={seeded(i + 120) * 800}
+              y2={seeded(i + 180) * 600}
+              stroke="#B07B4A"
               strokeWidth="0.4"
-              opacity={Math.random() * 0.5}
+              opacity={seeded(i + 240) * 0.5}
             />
           ))}
         </svg>
@@ -37,14 +48,12 @@ export default function Courses() {
           transition={{ duration: 0.7 }}
           className="max-w-3xl mb-16"
         >
-          <span className="section-eyebrow text-sand-200 before:bg-sand-200">
-            Formación profesional
-          </span>
-          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl mt-5 leading-[1.05]">
+          <span className="section-eyebrow">Formación profesional</span>
+          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl mt-5 leading-[1.05] text-violet-800">
             Estudiá yoga{" "}
-            <span className="italic text-sand-200">en serio</span>
+            <span className="italic text-violet-500">en serio</span>
           </h2>
-          <p className="mt-6 text-sand-100/85 text-lg leading-relaxed">
+          <p className="mt-6 text-violet-800/75 text-lg leading-relaxed">
             Niveles de formación pensados para vos. Con certificación oficial
             de la Escuela AYVIS · Ayur Yoga Vital International School y
             validaciones internacionales. Son cursos diseñados a tu tiempo y
