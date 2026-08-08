@@ -394,6 +394,10 @@ function Ring({
     <motion.div
       aria-hidden
       className={`rounded-full ${className}`}
+      // Arranca contraído (estado de fin de exhalación). Sin esto el anillo
+      // nace en tamaño máximo y la PRIMERA inhalación no crece: te dice
+      // "inhalá" y no pasa nada visualmente, justo en la primera impresión.
+      initial={reduced ? { opacity: 0.55 } : { scale: 0.5, opacity: 0.7 }}
       animate={
         reduced
           ? { opacity: scale === 1 ? 1 : 0.55 }
